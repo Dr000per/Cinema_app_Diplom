@@ -31,13 +31,12 @@ namespace Cinema_app_Diplom
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(poster.Rows[0].ItemArray[0].ToString());
             DataTable places = db.ExecuteSql($"select id_place, paid, reserved, destroyed from tickets where id_session = {id_session}");
-
             foreach (var item in this.Controls)
             {
                 if (item.GetType() == typeof(Place))
                 {
                     Place place = (Place)item;
-                    place.BackColor = Color.Green;
+                    place.BackColor = Color.Lime;
                     for (int i = 0; i < places.Rows.Count; i++)
                     {
                         DataTable row_place = db.ExecuteSql($"select row, place from Places where id = {places.Rows[i].ItemArray[0]}");

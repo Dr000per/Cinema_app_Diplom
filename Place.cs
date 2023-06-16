@@ -14,17 +14,35 @@ namespace Cinema_app_Diplom
     {
         public int Row { get; set; }
         public int Number { get; set; }
-
+        public static List<Place> list = new List<Place>();
 
         private void this_Click(object sender, EventArgs e)
         {
-            if ((sender as Place).BackColor == Color.Purple)
+            Place place = (Place)sender;
+            if (place.BackColor == Color.Purple)
             {
-                (sender as Place).BackColor = Color.Green;
+                place.BackColor = Color.Lime;
+                if (list.Contains(place))
+                {
+                    list.Remove(place);
+                    MessageBox.Show($"Кнопка удалена из списка: {place}");
+                    MessageBox.Show(list.Count.ToString());
+                    foreach (Place item in list)
+                    {
+                        MessageBox.Show($"Место: {item.Number} Ряд: {item.Row}");
+                    }
+                }
             }
             else
             {
-                (sender as Place).BackColor = Color.Purple;
+                place.BackColor = Color.Purple;
+                list.Add(place);
+                MessageBox.Show($"Кнопка добавлена в список: {place}");
+                MessageBox.Show(list.Count.ToString());
+                foreach(Place item in list)
+                {
+                    MessageBox.Show($"Место: {item.Number} Ряд: {item.Row}");
+                }
             }
         }
 

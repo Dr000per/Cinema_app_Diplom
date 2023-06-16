@@ -37,7 +37,7 @@ namespace Cinema_app_Diplom
                 if(item.GetType() == typeof(Place))
                 {
                     Place place = (Place)item;
-                    place.BackColor = Color.Green;
+                    place.BackColor = Color.Lime;
                     for (int i = 0; i < places.Rows.Count; i++)
                     {
                         DataTable row_place = db.ExecuteSql($"select row, place from Places where id = {places.Rows[i].ItemArray[0]}");
