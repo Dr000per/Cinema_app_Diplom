@@ -345,6 +345,7 @@
             this.place284 = new Cinema_app_Diplom.Place();
             this.place285 = new Cinema_app_Diplom.Place();
             this.place286 = new Cinema_app_Diplom.Place();
+            this.button_buy_tickets = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -4377,11 +4378,22 @@
             this.place286.Text = "25";
             this.place286.UseVisualStyleBackColor = false;
             // 
+            // button_buy_tickets
+            // 
+            this.button_buy_tickets.Location = new System.Drawing.Point(919, 616);
+            this.button_buy_tickets.Name = "button_buy_tickets";
+            this.button_buy_tickets.Size = new System.Drawing.Size(127, 31);
+            this.button_buy_tickets.TabIndex = 1157;
+            this.button_buy_tickets.Text = "Оплата";
+            this.button_buy_tickets.UseVisualStyleBackColor = true;
+            this.button_buy_tickets.Click += new System.EventHandler(this.button_buy_tickets_Click);
+            // 
             // IMAXHall_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 655);
+            this.Controls.Add(this.button_buy_tickets);
             this.Controls.Add(this.place283);
             this.Controls.Add(this.place284);
             this.Controls.Add(this.place285);
@@ -5026,5 +5038,6 @@
         private Place place284;
         private Place place285;
         private Place place286;
+        private System.Windows.Forms.Button button_buy_tickets;
     }
 }

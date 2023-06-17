@@ -26,11 +26,15 @@ namespace Cinema_app_Diplom
         int spacing_lbl = 25;
         int spacing_btn = 15;
         int spacing_pnl = 200;
+
         int pictureBoxWidth = 160;
         int pictureBoxHeight = 180;
+
         int labelHeight = 20;
+
         int buttonHeight = 43;
         int buttonWidth = 96;
+
         int panelWidth = 900;
         int panelHeight = 170;
 
@@ -105,6 +109,7 @@ namespace Cinema_app_Diplom
 
                             this.Controls.Add(label);
                             break;
+
                         case 1:
                             label.Text = films.Rows[i].ItemArray[1].ToString();
                             label.AutoSize = true;

@@ -64,7 +64,7 @@ namespace Cinema_app_Diplom
         private void comboBox_film_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable film_release_dates = db.ExecuteSql($"select film_release_start, film_release_finish from film where film_name = '{comboBox_film.SelectedItem}'");
-            dateTimePicker1.MinDate = (DateTime)film_release_dates.Rows[0].ItemArray[0];
+            dateTimePicker1.MinDate = DateTime.Now.Date;
             dateTimePicker1.MaxDate = (DateTime)film_release_dates.Rows[0].ItemArray[1];
             dateTimePicker1.Value = dateTimePicker1.MinDate;
             comboBox_hall.Enabled = true;
@@ -91,20 +91,18 @@ namespace Cinema_app_Diplom
                     {
                         comboBox_session_time.Items.RemoveAt(i);
                     }
-                }
-                for (int j = 0; j < comboBox_session_time.Items.Count; j++)
-                {
-                    DataTable checkSessions = db.ExecuteSql($"select * from sessions where date = '{dateTimePicker1.Value.ToString("yyyy-MM-dd")}' and time = '{comboBox_session_time.Items[j].ToString()}'");
+                    
+                    DataTable checkSessions = db.ExecuteSql($"select * from sessions where date = '{dateTimePicker1.Value.ToString("yyyy-MM-dd")}' and time = '{comboBox_session_time.Items[i]}'");
                     if (checkSessions.Rows.Count != 0)
                     {
-                        comboBox_session_time.Items.RemoveAt(j);
+                        comboBox_session_time.Items.RemoveAt(i);
                     }
                 }
                 comboBox_session_time.SelectedItem = comboBox_session_time.Items[0];
             }
             catch
             {
-                MessageBox.Show("Случились технические неполадки!");
+                MessageBox.Show("Случились технические неполадки!", "Уведомление");
             }
         }
 

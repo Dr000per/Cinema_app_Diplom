@@ -139,6 +139,7 @@
             this.place90 = new Cinema_app_Diplom.Place();
             this.place91 = new Cinema_app_Diplom.Place();
             this.place92 = new Cinema_app_Diplom.Place();
+            this.button_buy_tickets = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -316,7 +317,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(629, 1);
+            this.label2.Location = new System.Drawing.Point(629, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 24);
             this.label2.TabIndex = 180;
@@ -327,7 +328,7 @@
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label19.Location = new System.Drawing.Point(674, 5);
+            this.label19.Location = new System.Drawing.Point(683, 9);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(48, 15);
             this.label19.TabIndex = 182;
@@ -1529,11 +1530,22 @@
             this.place92.Text = "19";
             this.place92.UseVisualStyleBackColor = false;
             // 
+            // button_buy_tickets
+            // 
+            this.button_buy_tickets.Location = new System.Drawing.Point(720, 397);
+            this.button_buy_tickets.Name = "button_buy_tickets";
+            this.button_buy_tickets.Size = new System.Drawing.Size(127, 31);
+            this.button_buy_tickets.TabIndex = 1158;
+            this.button_buy_tickets.Text = "Оплата";
+            this.button_buy_tickets.UseVisualStyleBackColor = true;
+            this.button_buy_tickets.Click += new System.EventHandler(this.button_buy_tickets_Click);
+            // 
             // MiddleHall_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 409);
+            this.ClientSize = new System.Drawing.Size(881, 435);
+            this.Controls.Add(this.button_buy_tickets);
             this.Controls.Add(this.place91);
             this.Controls.Add(this.place92);
             this.Controls.Add(this.place85);
@@ -1766,6 +1778,7 @@
         private Place place90;
         private Place place91;
         private Place place92;
+        private System.Windows.Forms.Button button_buy_tickets;
     }
 }
 

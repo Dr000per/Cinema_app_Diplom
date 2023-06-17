@@ -15,13 +15,14 @@ namespace Cinema_app_Diplom
         DataBase db = new DataBase();
 
         int id_session;
+        string hall_name;
         public MiddleHall_2(string text, int id_sess)
         {
             InitializeComponent();
             label19.Text = text;
+            hall_name = text;
             id_session = id_sess;
             label19.Font = new Font(label19.Font, FontStyle.Bold);
-            MessageBox.Show(id_session.ToString());
         }
 
         private void MiddleHall_2_Load(object sender, EventArgs e)
@@ -50,6 +51,20 @@ namespace Cinema_app_Diplom
                         }
                     }
                 }
+            }
+        }
+
+        private void button_buy_tickets_Click(object sender, EventArgs e)
+        {
+            if (Place.list.Count > 0)
+            {
+                this.Hide();
+                Ticket_buy ticket_Buy = new Ticket_buy(id_session, hall_name);
+                ticket_Buy.Show();
+            }
+            else
+            {
+                MessageBox.Show("Для начала выберите место/места на схеме", "Уведомление");
             }
         }
     }

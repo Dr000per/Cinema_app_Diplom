@@ -19,29 +19,25 @@ namespace Cinema_app_Diplom
         private void this_Click(object sender, EventArgs e)
         {
             Place place = (Place)sender;
+            
             if (place.BackColor == Color.Purple)
             {
                 place.BackColor = Color.Lime;
                 if (list.Contains(place))
                 {
                     list.Remove(place);
-                    MessageBox.Show($"Кнопка удалена из списка: {place}");
-                    MessageBox.Show(list.Count.ToString());
-                    foreach (Place item in list)
-                    {
-                        MessageBox.Show($"Место: {item.Number} Ряд: {item.Row}");
-                    }
                 }
             }
             else
             {
-                place.BackColor = Color.Purple;
-                list.Add(place);
-                MessageBox.Show($"Кнопка добавлена в список: {place}");
-                MessageBox.Show(list.Count.ToString());
-                foreach(Place item in list)
+                if (list.Count < 5)
                 {
-                    MessageBox.Show($"Место: {item.Number} Ряд: {item.Row}");
+                    place.BackColor = Color.Purple;
+                    list.Add(place);
+                }
+                else
+                {
+                    MessageBox.Show("За один раз можно купить не более 5 билетов", "Уведомление");
                 }
             }
         }
