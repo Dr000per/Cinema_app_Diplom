@@ -29,10 +29,15 @@ namespace Cinema_app_Diplom
 
         private void IMAXHall_1_Load(object sender, EventArgs e)
         {
+            Schema_load();
+        }
+
+        private void Schema_load()
+        {
             DataTable poster = db.ExecuteSql($"select poster from film where id = (select id_film from sessions where id = {id_session})");
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Image.FromFile(poster.Rows[0].ItemArray[0].ToString());
-            DataTable places = db.ExecuteSql($"select id_place, paid, reserved, destroyed from tickets where id_session = {id_session}");
+            DataTable places = db.ExecuteSql($"select id_place, paid from tickets where id_session = {id_session}");
 
             foreach (var item in this.Controls)
             {
@@ -55,19 +60,28 @@ namespace Cinema_app_Diplom
                 }
             }
         }
-
         private void button_buy_tickets_Click(object sender, EventArgs e)
         {
             if (Place.list.Count > 0)
             {
-                this.Hide();
-                Ticket_buy ticket_Buy = new Ticket_buy(id_session, hall_name);
-                ticket_Buy.Show();
+                Open_ticket_buy();
             }
             else
             {
                 MessageBox.Show("Для начала выберите место/места на схеме", "Уведомление");
             }
+        }
+        private void Open_ticket_buy()
+        {
+            Ticket_buy ticket_Buy = new Ticket_buy(id_session, hall_name, this);
+            ticket_Buy.ticket_buy_form_close += tickets_buy_form_close;
+            ticket_Buy.Show();
+            this.Hide();
+        }
+        private void tickets_buy_form_close(object sender, EventArgs e)
+        {
+            Schema_load();
+            this.Show();
         }
     }
 }

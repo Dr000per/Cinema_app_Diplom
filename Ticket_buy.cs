@@ -13,14 +13,18 @@ namespace Cinema_app_Diplom
 {
     public partial class Ticket_buy : Form
     {
+        public event EventHandler ticket_buy_form_close;
+
         DataBase db = new DataBase();
         int id_session;
         string hall_name;
-        public Ticket_buy(int id_sess, string hall)
+        Form hall_form;
+        public Ticket_buy(int id_sess, string hall, Form form)
         {
             InitializeComponent();
             id_session = id_sess;
             hall_name = hall;
+            this.hall_form = form;
         }
 
         int spacing_lbl = 2;
@@ -65,15 +69,24 @@ namespace Cinema_app_Diplom
 
             label1.Text = film_data.Rows[0].ItemArray[0].ToString();
             label1.Font = new Font((string)"Microsoft Sans Serif", (float)10.5, FontStyle.Bold);
+            label1.AutoSize = true;
+
             label2.Text = film_data.Rows[0].ItemArray[1].ToString();
             label2.Font = new Font((string)"Microsoft Sans Serif", (float)10.5, FontStyle.Bold);
+            label2.AutoSize = true;
+
             DateTime data = (DateTime)date_time.Rows[0].ItemArray[0];
+
             label3.Text = $"Дата: {data.ToShortDateString()} {date_time.Rows[0].ItemArray[1]}";
             label3.Font = new Font((string)"Microsoft Sans Serif", (float)10.5, FontStyle.Bold);
+            label3.AutoSize = true;
+
             pictureBox1.Image = Image.FromFile($"{film_data.Rows[0].ItemArray[2]}");
+
             label.AutoSize = true;
             label.Location = new Point(startX_panel_tickets, startY_panel_tickets - 20);
             label.Font = new Font((string)"Microsoft Sans Serif", (float)10.5, FontStyle.Bold);
+
             panel.Controls.Add(label);
         }
 
@@ -81,15 +94,47 @@ namespace Cinema_app_Diplom
         {
             DataTable date_time_tickets = db.ExecuteSql($"select date, time from sessions where id = {id_session}");
             DateTime data = (DateTime)date_time_tickets.Rows[0].ItemArray[0];
-            DialogResult result = MessageBox.Show("Подтвердить продажу выбранных билетов?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if(radioButton_nal.Checked || radioButton_beznal.Checked)
             {
-                foreach (var item in Place.list)
+                DialogResult result = MessageBox.Show("Подтвердить продажу выбранных билетов?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    db.ExecuteNonQuery($"insert into tickets values ({id_session}, (select id from places where id_hall = (select id from cinema_hall where name = '{hall_name}') and row = {item.Row} and place = {item.Number}), '{data.ToShortDateString()}', '{date_time_tickets.Rows[0].ItemArray[1]}', 1, 0, 0);");
+                    if (radioButton_nal.Checked)
+                    {
+                        foreach (var item in Place.list)
+                        {
+                            db.ExecuteNonQuery($"insert into tickets values ({id_session}, (select id from places where id_hall = (select id from cinema_hall where name = '{hall_name}') and row = {item.Row} and place = {item.Number}), '{data.ToShortDateString()}', '{date_time_tickets.Rows[0].ItemArray[1]}', 1, '{radioButton_nal.Text}');");
+                        }
+                        MessageBox.Show("Оплата прошла успешно!", "Уведомление");
+                        Close_ticket_buy();
+                    }
+                    else if (radioButton_beznal.Checked)
+                    {
+                        foreach (var item in Place.list)
+                        {
+                            db.ExecuteNonQuery($"insert into tickets values ({id_session}, (select id from places where id_hall = (select id from cinema_hall where name = '{hall_name}') and row = {item.Row} and place = {item.Number}), '{data.ToShortDateString()}', '{date_time_tickets.Rows[0].ItemArray[1]}', 1, '{radioButton_beznal.Text}');");
+                        }
+                        MessageBox.Show("Оплата прошла успешно!", "Уведомление");
+                        Close_ticket_buy();
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Не выбран способ оплаты", "Уведомление");
+            }
+        }
 
+        private void Close_ticket_buy()
+        {
+            Place.list.Clear();
+            hall_form.Show();
+            ticket_buy_form_close?.Invoke(this, EventArgs.Empty);
+            this.Close();
+        }
+        private void button_close_Click(object sender, EventArgs e)
+        {
+            Close_ticket_buy();
         }
     }
 }

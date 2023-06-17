@@ -34,8 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_accept = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton_nal = new System.Windows.Forms.RadioButton();
+            this.radioButton_beznal = new System.Windows.Forms.RadioButton();
+            this.button_close = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -91,7 +92,7 @@
             // 
             // button_accept
             // 
-            this.button_accept.Location = new System.Drawing.Point(583, 361);
+            this.button_accept.Location = new System.Drawing.Point(583, 342);
             this.button_accept.Name = "button_accept";
             this.button_accept.Size = new System.Drawing.Size(185, 52);
             this.button_accept.TabIndex = 1;
@@ -99,35 +100,46 @@
             this.button_accept.UseVisualStyleBackColor = true;
             this.button_accept.Click += new System.EventHandler(this.button_accept_Click);
             // 
-            // radioButton1
+            // radioButton_nal
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(583, 273);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(113, 17);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Наличный расчёт";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton_nal.AutoSize = true;
+            this.radioButton_nal.Location = new System.Drawing.Point(583, 273);
+            this.radioButton_nal.Name = "radioButton_nal";
+            this.radioButton_nal.Size = new System.Drawing.Size(113, 17);
+            this.radioButton_nal.TabIndex = 2;
+            this.radioButton_nal.TabStop = true;
+            this.radioButton_nal.Text = "Наличный расчёт";
+            this.radioButton_nal.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButton_beznal
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(583, 306);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(130, 17);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Безналичный расчёт";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton_beznal.AutoSize = true;
+            this.radioButton_beznal.Location = new System.Drawing.Point(583, 306);
+            this.radioButton_beznal.Name = "radioButton_beznal";
+            this.radioButton_beznal.Size = new System.Drawing.Size(130, 17);
+            this.radioButton_beznal.TabIndex = 3;
+            this.radioButton_beznal.TabStop = true;
+            this.radioButton_beznal.Text = "Безналичный расчёт";
+            this.radioButton_beznal.UseVisualStyleBackColor = true;
+            // 
+            // button_close
+            // 
+            this.button_close.Location = new System.Drawing.Point(637, 409);
+            this.button_close.Name = "button_close";
+            this.button_close.Size = new System.Drawing.Size(81, 29);
+            this.button_close.TabIndex = 4;
+            this.button_close.Text = "Назад";
+            this.button_close.UseVisualStyleBackColor = true;
+            this.button_close.Click += new System.EventHandler(this.button_close_Click);
             // 
             // Ticket_buy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.button_close);
+            this.Controls.Add(this.radioButton_beznal);
+            this.Controls.Add(this.radioButton_nal);
             this.Controls.Add(this.button_accept);
             this.Controls.Add(this.panel1);
             this.Name = "Ticket_buy";
@@ -149,7 +161,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_accept;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton_nal;
+        private System.Windows.Forms.RadioButton radioButton_beznal;
+        private System.Windows.Forms.Button button_close;
     }
 }
