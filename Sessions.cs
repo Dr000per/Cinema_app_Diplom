@@ -52,16 +52,16 @@ namespace Cinema_app_Diplom
 
         private void Sessions_Load(object sender, EventArgs e)
         {
-            DataTable maxdate = db.ExecuteSql($"select max(date) from sessions");
-            dateTimePicker1.MinDate = date_now;
-            dateTimePicker1.MaxDate = (DateTime)maxdate.Rows[0].ItemArray[0];
-            dateTimePicker1.Value = date_now;
             Generate_sessions();
         }
         
 
         public void Generate_sessions()
         {
+            DataTable maxdate = db.ExecuteSql($"select max(date) from sessions");
+            dateTimePicker1.MinDate = date_now;
+            dateTimePicker1.MaxDate = (DateTime)maxdate.Rows[0].ItemArray[0];
+            dateTimePicker1.Value = date_now;
             foreach (Control control in Controls.OfType<Control>().ToList())
             {
                 if (control is Label label && label.Text == "Расписание на")
@@ -176,36 +176,42 @@ namespace Cinema_app_Diplom
                         switch (label.Text)
                         {
                             case "Стандарт 1":
-                                this.Hide();
-                                MiddleHall_1 standart_1 = new MiddleHall_1(label.Text, id_ses);
+                                MiddleHall_1 standart_1 = new MiddleHall_1(label.Text, id_ses, this);
+                                standart_1.hall_form_close += Hall_form_close;
                                 standart_1.Show();
+                                this.Hide();
                                 break;
 
                             case "Стандарт 2":
-                                this.Hide();
-                                MiddleHall_2 standart_2 = new MiddleHall_2(label.Text, id_ses);
+                                MiddleHall_2 standart_2 = new MiddleHall_2(label.Text, id_ses, this);
+                                standart_2.hall_form_close += Hall_form_close;
                                 standart_2.Show();
+                                this.Hide();
                                 break;
 
                             case "IMAX":
-                                this.Hide();
-                                IMAXHall_1 IMAX_1 = new IMAXHall_1(label.Text, id_ses);
+                                IMAXHall_1 IMAX_1 = new IMAXHall_1(label.Text, id_ses, this);
+                                IMAX_1.hall_form_close += Hall_form_close;
                                 IMAX_1.Show();
+                                this.Hide();
                                 break;
 
                             case "Большой зал":
-                                this.Hide();
-                                HugeHall_1 hugeHall_1 = new HugeHall_1(label.Text, id_ses);
+                                HugeHall_1 hugeHall_1 = new HugeHall_1(label.Text, id_ses, this);
+                                hugeHall_1.hall_form_close += Hall_form_close;
                                 hugeHall_1.Show();
+                                this.Hide();
                                 break;
 
                             case "Диванный зал":
-                                this.Hide();
-                                Premium_hall premium_Hall = new Premium_hall(label.Text, id_ses);
+                                Premium_hall premium_Hall = new Premium_hall(label.Text, id_ses, this);
+                                premium_Hall.hall_form_close += Hall_form_close;
                                 premium_Hall.Show();
+                                this.Hide();
                                 break;
                         }
                     };
+
                     if(session_time > DateTime.Now)
                     {
                         panel.Controls.Add(button);
@@ -220,6 +226,18 @@ namespace Cinema_app_Diplom
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             Generate_sessions();
+        }
+
+
+        private void button_back_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Hall_form_close(object sender, EventArgs e)
+        {
+            Generate_sessions();
+            this.Show();
         }
     }
 }

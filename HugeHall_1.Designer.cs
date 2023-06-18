@@ -362,6 +362,7 @@
             this.place299 = new Cinema_app_Diplom.Place();
             this.place300 = new Cinema_app_Diplom.Place();
             this.button_buy_tickets = new System.Windows.Forms.Button();
+            this.button_back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -4605,11 +4606,22 @@
             this.button_buy_tickets.UseVisualStyleBackColor = true;
             this.button_buy_tickets.Click += new System.EventHandler(this.button_buy_tickets_Click);
             // 
+            // button_back
+            // 
+            this.button_back.Location = new System.Drawing.Point(18, 10);
+            this.button_back.Name = "button_back";
+            this.button_back.Size = new System.Drawing.Size(76, 23);
+            this.button_back.TabIndex = 1160;
+            this.button_back.Text = "Назад";
+            this.button_back.UseVisualStyleBackColor = true;
+            this.button_back.Click += new System.EventHandler(this.button_back_Click);
+            // 
             // HugeHall_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 656);
+            this.Controls.Add(this.button_back);
             this.Controls.Add(this.button_buy_tickets);
             this.Controls.Add(this.place297);
             this.Controls.Add(this.place298);
@@ -5289,5 +5301,6 @@
         private Place place299;
         private Place place300;
         private System.Windows.Forms.Button button_buy_tickets;
+        private System.Windows.Forms.Button button_back;
     }
 }

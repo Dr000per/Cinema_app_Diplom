@@ -14,16 +14,20 @@ namespace Cinema_app_Diplom
 {
     public partial class IMAXHall_1 : Form
     {
+        public event EventHandler hall_form_close;
+
         DataBase db = new DataBase();
 
+        Form sessions;
         int id_session;
         string hall_name;
-        public IMAXHall_1(string text, int id_sess)
+        public IMAXHall_1(string text, int id_sess, Form form)
         {
             InitializeComponent();
             label1.Text = text;
             hall_name = text;
             id_session = id_sess;
+            this.sessions = form;
             label1.Font = new Font(label1.Font, FontStyle.Bold);
         }
 
@@ -82,6 +86,18 @@ namespace Cinema_app_Diplom
         {
             Schema_load();
             this.Show();
+        }
+
+        private void button_back_Click(object sender, EventArgs e)
+        {
+            Close_hall_form();
+        }
+
+        private void Close_hall_form()
+        {
+            sessions.Show();
+            hall_form_close?.Invoke(this, EventArgs.Empty);
+            this.Close();
         }
     }
 }

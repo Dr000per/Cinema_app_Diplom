@@ -16,9 +16,11 @@ namespace Cinema_app_Diplom
         public event EventHandler ticket_buy_form_close;
 
         DataBase db = new DataBase();
+
         int id_session;
         string hall_name;
         Form hall_form;
+
         public Ticket_buy(int id_sess, string hall, Form form)
         {
             InitializeComponent();
@@ -132,6 +134,7 @@ namespace Cinema_app_Diplom
             ticket_buy_form_close?.Invoke(this, EventArgs.Empty);
             this.Close();
         }
+
         private void button_close_Click(object sender, EventArgs e)
         {
             Close_ticket_buy();

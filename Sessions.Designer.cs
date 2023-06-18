@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button_back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -52,12 +53,23 @@
             this.dateTimePicker1.TabIndex = 1;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
+            // button_back
+            // 
+            this.button_back.Location = new System.Drawing.Point(35, 19);
+            this.button_back.Name = "button_back";
+            this.button_back.Size = new System.Drawing.Size(94, 26);
+            this.button_back.TabIndex = 2;
+            this.button_back.Text = "Назад";
+            this.button_back.UseVisualStyleBackColor = true;
+            this.button_back.Click += new System.EventHandler(this.button_back_Click);
+            // 
             // Sessions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1404, 704);
+            this.Controls.Add(this.button_back);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(1420, 743);
@@ -73,5 +85,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button_back;
     }
 }
