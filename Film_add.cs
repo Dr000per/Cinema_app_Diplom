@@ -15,12 +15,14 @@ namespace Cinema_app_Diplom
 {
     public partial class Film_add : Form
     {
+        Form main_frm;
         DataBase db = new DataBase();
         DataTable film = new DataTable();
         DateTime date_now = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-        public Film_add()
+        public Film_add(Form main_form)
         {
             InitializeComponent();
+            this.main_frm = main_form;
         }
 
         private void Film_add_Load(object sender, EventArgs e)
@@ -133,6 +135,7 @@ namespace Cinema_app_Diplom
 
         private void button_close_Click(object sender, EventArgs e)
         {
+            main_frm.Show();
             this.Close();
         }
 

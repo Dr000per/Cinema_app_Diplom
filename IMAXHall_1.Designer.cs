@@ -4724,7 +4724,7 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
             this.Name = "IMAXHall_1";
-            this.Text = "IMAXHall_1";
+            this.Text = "Схема IMAX зал";
             this.Load += new System.EventHandler(this.IMAXHall_1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

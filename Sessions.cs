@@ -14,6 +14,7 @@ namespace Cinema_app_Diplom
 {
     public partial class Sessions : Form
     {
+        Form main_frm;
         DataBase db = new DataBase();
         DataTable films = new DataTable();
         DataTable sessions = new DataTable();
@@ -45,9 +46,11 @@ namespace Cinema_app_Diplom
         int panel_startX = 480;
         int panel_startY = 80;
 
-        public Sessions()
+        public Sessions(Form main_form)
         {
             InitializeComponent();
+            main_frm = main_form;
+            dateTimePicker1.Value = date_now;
         }
 
         private void Sessions_Load(object sender, EventArgs e)
@@ -61,7 +64,6 @@ namespace Cinema_app_Diplom
             DataTable maxdate = db.ExecuteSql($"select max(date) from sessions");
             dateTimePicker1.MinDate = date_now;
             dateTimePicker1.MaxDate = (DateTime)maxdate.Rows[0].ItemArray[0];
-            dateTimePicker1.Value = date_now;
             foreach (Control control in Controls.OfType<Control>().ToList())
             {
                 if (control is Label label && label.Text == "Расписание на")
@@ -69,6 +71,10 @@ namespace Cinema_app_Diplom
                     continue; 
                 }
                 else if (control is DateTimePicker)
+                {
+                    continue;
+                }
+                else if (control is Button button && button.Name == "button_back")
                 {
                     continue;
                 }
@@ -95,6 +101,7 @@ namespace Cinema_app_Diplom
                 panel.Size = new Size(panelWidth, panelHeight);
                 panel.Location = new Point(panel_startX, i * spacing_pnl + panel_startY);
                 panel.BorderStyle = BorderStyle.FixedSingle;
+                panel.BackColor = Color.DarkGray;
 
                 for (int j = 0; j < labelCount; j++)
                 {
@@ -158,7 +165,7 @@ namespace Cinema_app_Diplom
                     button.Text = $"{session_time.ToShortTimeString()}\n  {(int)Math.Round(price)}" + " руб.";
                     button.Size = new Size(buttonWidth, buttonHeight);
                     button.Location = new Point(button_startX + (buttonWidth + spacing_btn) * b, button_startY);
-                    button.BackColor = Color.Purple;
+                    button.BackColor = Color.DarkGoldenrod;
                     button.FlatStyle = FlatStyle.Popup;
                     button.Font = new Font((string)"Microsoft Sans Serif", (float)10, FontStyle.Bold);
 
@@ -231,7 +238,8 @@ namespace Cinema_app_Diplom
 
         private void button_back_Click(object sender, EventArgs e)
         {
-
+            main_frm.Show();
+            this.Close();
         }
 
         private void Hall_form_close(object sender, EventArgs e)

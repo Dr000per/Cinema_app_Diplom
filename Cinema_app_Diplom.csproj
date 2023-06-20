@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Screenshot_1.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,6 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase.cs" />
+    <Compile Include="Employee_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee_add.Designer.cs">
+      <DependentUpon>Employee_add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Film_add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +88,18 @@
     </Compile>
     <Compile Include="IMAXHall_1.Designer.cs">
       <DependentUpon>IMAXHall_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_form.Designer.cs">
+      <DependentUpon>Main_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers_menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers_menu.Designer.cs">
+      <DependentUpon>Managers_menu.cs</DependentUpon>
     </Compile>
     <Compile Include="MiddleHall_1.cs">
       <SubType>Form</SubType>
@@ -115,6 +151,12 @@
     <EmbeddedResource Include="IMAXHall_1.resx">
       <DependentUpon>IMAXHall_1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main_form.resx">
+      <DependentUpon>Main_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers_menu.resx">
+      <DependentUpon>Managers_menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MiddleHall_1.resx">
       <DependentUpon>MiddleHall_1.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +174,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Sessions.resx">
       <DependentUpon>Sessions.cs</DependentUpon>
@@ -154,6 +197,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="6a4910c1-0505-4491-a3ac-efc1738d9736.ico" />
+    <None Include="Resources\Screenshot_1.png" />
+    <Content Include="Screenshot_1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

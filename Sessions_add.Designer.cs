@@ -128,6 +128,7 @@
             this.button_close.TabIndex = 39;
             this.button_close.Text = "Отмена";
             this.button_close.UseVisualStyleBackColor = true;
+            this.button_close.Click += new System.EventHandler(this.button_close_Click);
             // 
             // comboBox_session_time
             // 
@@ -182,7 +183,7 @@
             this.Controls.Add(this.comboBox_hall);
             this.Controls.Add(this.label4);
             this.Name = "Sessions_add";
-            this.Text = "Sessions_add";
+            this.Text = "Добавление сеансов";
             this.Load += new System.EventHandler(this.Sessions_add_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

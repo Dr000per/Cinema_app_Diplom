@@ -409,7 +409,7 @@
             this.Controls.Add(this.textBox_poster_path);
             this.Controls.Add(this.textBox_film_name);
             this.Name = "Film_add";
-            this.Text = "Film_add";
+            this.Text = "Добавление фильма";
             this.Load += new System.EventHandler(this.Film_add_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_poster_path)).EndInit();
             this.ResumeLayout(false);

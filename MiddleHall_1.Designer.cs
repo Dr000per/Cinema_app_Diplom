@@ -1670,7 +1670,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "MiddleHall_1";
-            this.Text = "Form1";
+            this.Text = "Схема Стандарт_1 зал";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

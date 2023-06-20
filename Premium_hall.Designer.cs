@@ -878,7 +878,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "Premium_hall";
-            this.Text = "Premium_hall";
+            this.Text = "Схема диванного зала";
             this.Load += new System.EventHandler(this.Premium_hall_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

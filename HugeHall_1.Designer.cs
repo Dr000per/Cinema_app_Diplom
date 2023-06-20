@@ -4957,7 +4957,7 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
             this.Name = "HugeHall_1";
-            this.Text = "HugeHall_1";
+            this.Text = "Схема большого зала";
             this.Load += new System.EventHandler(this.HugeHall_1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

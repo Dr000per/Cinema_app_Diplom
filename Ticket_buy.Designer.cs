@@ -143,7 +143,7 @@
             this.Controls.Add(this.button_accept);
             this.Controls.Add(this.panel1);
             this.Name = "Ticket_buy";
-            this.Text = "Ticket_buy";
+            this.Text = "Оплата билетов";
             this.Load += new System.EventHandler(this.Ticket_buy_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

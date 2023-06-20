@@ -13,11 +13,14 @@ namespace Cinema_app_Diplom
 {
     public partial class Sessions_add : Form
     {
+        Form manager_form;
+
         DataBase db = new DataBase();
         string[] timeFormats = { "H:mm", "H:mm:ss" };
-        public Sessions_add()
+        public Sessions_add(Form form)
         {
             InitializeComponent();
+            manager_form = form;
         }
         string timestring;
         private void Sessions_add_Load(object sender, EventArgs e)
@@ -153,6 +156,12 @@ namespace Cinema_app_Diplom
                 TimeSessionsAdd();
                 DurationCheck();
             }
+        }
+
+        private void button_close_Click(object sender, EventArgs e)
+        {
+            manager_form.Show();
+            this.Close();
         }
     }
 }
