@@ -16,7 +16,7 @@ namespace Cinema_app_Diplom
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_form());
+            Application.Run(new Authorization());
         }
     }
 }

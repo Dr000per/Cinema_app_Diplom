@@ -64,6 +64,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin_panel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_panel.Designer.cs">
+      <DependentUpon>Admin_panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authorization.Designer.cs">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckingTextBoxes.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="Employee_add.cs">
       <SubType>Form</SubType>
@@ -142,6 +155,21 @@
     <Compile Include="Ticket_buy.Designer.cs">
       <DependentUpon>Ticket_buy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users_add.Designer.cs">
+      <DependentUpon>Users_add.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin_panel.resx">
+      <DependentUpon>Admin_panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authorization.resx">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee_add.resx">
+      <DependentUpon>Employee_add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Film_add.resx">
       <DependentUpon>Film_add.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ticket_buy.resx">
       <DependentUpon>Ticket_buy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users_add.resx">
+      <DependentUpon>Users_add.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

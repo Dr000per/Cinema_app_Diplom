@@ -16,7 +16,9 @@ namespace Cinema_app_Diplom
         public Managers_menu(Form form)
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             main_frm = form;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Managers_menu_Load(object sender, EventArgs e)
@@ -28,6 +30,7 @@ namespace Cinema_app_Diplom
             label_film_add.Parent = pictureBox_main;
             label_sessions_create.Parent = pictureBox_main;
             label_close.Parent = pictureBox_main;
+            label_employee_add.Parent = pictureBox_main;
         }
 
         private void label_close_Click(object sender, EventArgs e)
@@ -47,6 +50,13 @@ namespace Cinema_app_Diplom
         {
             Sessions_add sessions_Add = new Sessions_add(this);
             sessions_Add.Show();
+            this.Hide();
+        }
+
+        private void label_employee_add_Click(object sender, EventArgs e)
+        {
+            Employee_add employee_Add = new Employee_add(this);
+            employee_Add.Show();
             this.Hide();
         }
     }

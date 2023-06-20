@@ -51,6 +51,7 @@ namespace Cinema_app_Diplom
             InitializeComponent();
             main_frm = main_form;
             dateTimePicker1.Value = date_now;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
         private void Sessions_Load(object sender, EventArgs e)

@@ -21,6 +21,7 @@ namespace Cinema_app_Diplom
         {
             InitializeComponent();
             manager_form = form;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
         }
         string timestring;
         private void Sessions_add_Load(object sender, EventArgs e)

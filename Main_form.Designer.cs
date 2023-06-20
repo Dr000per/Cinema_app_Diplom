@@ -99,6 +99,7 @@
             this.label_menu_for_adm.Size = new System.Drawing.Size(476, 33);
             this.label_menu_for_adm.TabIndex = 4;
             this.label_menu_for_adm.Text = "Для администратора кинотеатра";
+            this.label_menu_for_adm.Click += new System.EventHandler(this.label_menu_for_adm_Click);
             // 
             // label_close
             // 

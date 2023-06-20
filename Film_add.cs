@@ -23,6 +23,7 @@ namespace Cinema_app_Diplom
         {
             InitializeComponent();
             this.main_frm = main_form;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
         private void Film_add_Load(object sender, EventArgs e)

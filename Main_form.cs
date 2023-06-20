@@ -15,6 +15,7 @@ namespace Cinema_app_Diplom
         public Main_form()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -39,13 +40,20 @@ namespace Cinema_app_Diplom
 
         private void label_close_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void label_menu_for_managers_Click(object sender, EventArgs e)
         {
             Managers_menu managers_Menu = new Managers_menu(this);
             managers_Menu.Show();
+            this.Hide();
+        }
+
+        private void label_menu_for_adm_Click(object sender, EventArgs e)
+        {
+            Admin_panel admin_Panel = new Admin_panel(this);
+            admin_Panel.Show();
             this.Hide();
         }
     }

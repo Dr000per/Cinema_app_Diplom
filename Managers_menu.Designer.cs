@@ -33,6 +33,7 @@
             this.label_sessions_create = new System.Windows.Forms.Label();
             this.label_film_add = new System.Windows.Forms.Label();
             this.label_main = new System.Windows.Forms.Label();
+            this.label_employee_add = new System.Windows.Forms.Label();
             this.pictureBox_main = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).BeginInit();
             this.SuspendLayout();
@@ -88,6 +89,19 @@
             this.label_main.TabIndex = 7;
             this.label_main.Text = "Меню для менеджеров:";
             // 
+            // label_employee_add
+            // 
+            this.label_employee_add.AutoSize = true;
+            this.label_employee_add.BackColor = System.Drawing.Color.Transparent;
+            this.label_employee_add.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_employee_add.ForeColor = System.Drawing.Color.White;
+            this.label_employee_add.Location = new System.Drawing.Point(24, 201);
+            this.label_employee_add.Name = "label_employee_add";
+            this.label_employee_add.Size = new System.Drawing.Size(338, 33);
+            this.label_employee_add.TabIndex = 12;
+            this.label_employee_add.Text = "Добавление сотрудников";
+            this.label_employee_add.Click += new System.EventHandler(this.label_employee_add_Click);
+            // 
             // pictureBox_main
             // 
             this.pictureBox_main.BackColor = System.Drawing.Color.Black;
@@ -104,7 +118,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label_employee_add);
             this.Controls.Add(this.label_close);
             this.Controls.Add(this.label_sessions_create);
             this.Controls.Add(this.label_film_add);
@@ -127,5 +143,6 @@
         private System.Windows.Forms.Label label_film_add;
         private System.Windows.Forms.Label label_main;
         private System.Windows.Forms.PictureBox pictureBox_main;
+        private System.Windows.Forms.Label label_employee_add;
     }
 }
