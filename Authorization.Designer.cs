@@ -63,7 +63,7 @@
             this.label_auth.Size = new System.Drawing.Size(194, 31);
             this.label_auth.TabIndex = 27;
             this.label_auth.Text = "Авторизоваться";
-            this.label_auth.Click += new System.EventHandler(this.label_add_Click);
+            this.label_auth.Click += new System.EventHandler(this.label_auth_Click);
             // 
             // label_login
             // 
@@ -134,7 +134,6 @@
             this.pictureBox_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_main.TabIndex = 7;
             this.pictureBox_main.TabStop = false;
-            this.pictureBox_main.Click += new System.EventHandler(this.pictureBox_main_Click);
             // 
             // Authorization
             // 

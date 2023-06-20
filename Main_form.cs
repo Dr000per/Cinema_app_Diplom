@@ -12,11 +12,13 @@ namespace Cinema_app_Diplom
 {
     public partial class Main_form : Form
     {
-        public Main_form()
+        int role;
+        public Main_form(int role_id)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedDialog;
             this.StartPosition = FormStartPosition.CenterScreen;
+            role = role_id;
         }
 
         private void Main_form_Load(object sender, EventArgs e)
@@ -29,6 +31,16 @@ namespace Cinema_app_Diplom
             label_menu_for_managers.Parent = pictureBox_main;
             label_menu_for_adm.Parent = pictureBox_main;
             label_close.Parent = pictureBox_main;
+
+            if (role == 6)
+            {
+                label_menu_for_adm.Visible= false;
+                label_menu_for_managers.Visible= false;
+            }
+            else if (role == 5)
+            {
+                label_menu_for_adm.Visible = false;
+            }
         }
 
         private void label_menu_for_operators_Click(object sender, EventArgs e)

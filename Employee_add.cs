@@ -161,7 +161,7 @@ namespace Cinema_app_Diplom
         private void textBox_phone_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-            if (checkText.LengthCheck(textBox_phone.Text, 12))
+            if (!checkText.LengthCheck(textBox_phone.Text, 12))
             {
                 if (!textBox_phone.Text.Contains("+"))
                 {

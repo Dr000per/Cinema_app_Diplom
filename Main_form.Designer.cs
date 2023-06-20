@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_form));
             this.label_main = new System.Windows.Forms.Label();
-            this.pictureBox_main = new System.Windows.Forms.PictureBox();
             this.label_menu_for_operators = new System.Windows.Forms.Label();
             this.label_menu_for_managers = new System.Windows.Forms.Label();
             this.label_menu_for_adm = new System.Windows.Forms.Label();
             this.label_close = new System.Windows.Forms.Label();
+            this.pictureBox_main = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,18 +49,6 @@
             this.label_main.Size = new System.Drawing.Size(222, 36);
             this.label_main.TabIndex = 1;
             this.label_main.Text = "Главное меню:";
-            // 
-            // pictureBox_main
-            // 
-            this.pictureBox_main.BackColor = System.Drawing.Color.Black;
-            this.pictureBox_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_main.Image = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
-            this.pictureBox_main.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_main.Name = "pictureBox_main";
-            this.pictureBox_main.Size = new System.Drawing.Size(800, 450);
-            this.pictureBox_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_main.TabIndex = 0;
-            this.pictureBox_main.TabStop = false;
             // 
             // label_menu_for_operators
             // 
@@ -113,6 +101,18 @@
             this.label_close.TabIndex = 5;
             this.label_close.Text = "Выход";
             this.label_close.Click += new System.EventHandler(this.label_close_Click);
+            // 
+            // pictureBox_main
+            // 
+            this.pictureBox_main.BackColor = System.Drawing.Color.Black;
+            this.pictureBox_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox_main.Image = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
+            this.pictureBox_main.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox_main.Name = "pictureBox_main";
+            this.pictureBox_main.Size = new System.Drawing.Size(800, 450);
+            this.pictureBox_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_main.TabIndex = 0;
+            this.pictureBox_main.TabStop = false;
             // 
             // Main_form
             // 

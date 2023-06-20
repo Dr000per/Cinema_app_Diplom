@@ -90,6 +90,7 @@
     <Compile Include="Film_add.Designer.cs">
       <DependentUpon>Film_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="General_values.cs" />
     <Compile Include="HugeHall_1.cs">
       <SubType>Form</SubType>
     </Compile>

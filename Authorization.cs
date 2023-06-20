@@ -15,6 +15,8 @@ namespace Cinema_app_Diplom
         DataBase db = new DataBase();
 
         DataTable users = new DataTable();
+
+        General_values userRole = new General_values();
         public Authorization()
         {
             InitializeComponent();
@@ -23,29 +25,9 @@ namespace Cinema_app_Diplom
             textBox_password.PasswordChar = '*';
         }
 
-        private void pictureBox_main_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label_back_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void label_add_Click(object sender, EventArgs e)
-        {
-            users = db.ExecuteSql($"select * from users where login = '{textBox_login.Text}' and password = '{textBox_password.Text}'");
-            if(users.Rows.Count > 0)
-            {
-                Main_form main = new Main_form();
-                main.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Такого пользователя не существует", "Уведомление");
-            }
         }
 
         private void Authorization_Load(object sender, EventArgs e)
@@ -60,6 +42,22 @@ namespace Cinema_app_Diplom
 
             textBox_login.Parent = pictureBox_main;
             textBox_password.Parent = pictureBox_main;
+        }
+
+        private void label_auth_Click(object sender, EventArgs e)
+        {
+            users = db.ExecuteSql($"select id_role from users where login = '{textBox_login.Text}' and password = '{textBox_password.Text}'");
+            if (users.Rows.Count > 0)
+            {
+                userRole.UserRole = (int)users.Rows[0].ItemArray[0];
+                Main_form main = new Main_form(userRole.UserRole);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Такого пользователя не существует", "Уведомление");
+            }
         }
     }
 }
