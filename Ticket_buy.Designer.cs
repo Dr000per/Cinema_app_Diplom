@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ticket_buy));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,7 +50,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(25, 22);
+            this.panel1.Location = new System.Drawing.Point(21, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(743, 134);
             this.panel1.TabIndex = 0;
@@ -92,11 +93,11 @@
             // 
             // button_accept
             // 
-            this.button_accept.Location = new System.Drawing.Point(583, 342);
+            this.button_accept.Location = new System.Drawing.Point(583, 353);
             this.button_accept.Name = "button_accept";
-            this.button_accept.Size = new System.Drawing.Size(185, 52);
+            this.button_accept.Size = new System.Drawing.Size(181, 53);
             this.button_accept.TabIndex = 1;
-            this.button_accept.Text = "Подтвердить";
+            this.button_accept.Text = "Продать";
             this.button_accept.UseVisualStyleBackColor = true;
             this.button_accept.Click += new System.EventHandler(this.button_accept_Click);
             // 
@@ -124,7 +125,7 @@
             // 
             // button_close
             // 
-            this.button_close.Location = new System.Drawing.Point(637, 409);
+            this.button_close.Location = new System.Drawing.Point(632, 412);
             this.button_close.Name = "button_close";
             this.button_close.Size = new System.Drawing.Size(81, 29);
             this.button_close.TabIndex = 4;
@@ -142,8 +143,9 @@
             this.Controls.Add(this.radioButton_nal);
             this.Controls.Add(this.button_accept);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Ticket_buy";
-            this.Text = "Оплата билетов";
+            this.Text = "Продажа билетов";
             this.Load += new System.EventHandler(this.Ticket_buy_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

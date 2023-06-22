@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee_add));
             this.textBox_surname = new System.Windows.Forms.TextBox();
             this.textBox_firstname = new System.Windows.Forms.TextBox();
             this.label_surname = new System.Windows.Forms.Label();
@@ -57,7 +58,7 @@
             this.textBox_surname.Name = "textBox_surname";
             this.textBox_surname.Size = new System.Drawing.Size(171, 15);
             this.textBox_surname.TabIndex = 0;
-            this.textBox_surname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_surname_KeyPress);
+            this.textBox_surname.TextChanged += new System.EventHandler(this.textBox_surname_TextChanged);
             // 
             // textBox_firstname
             // 
@@ -255,6 +256,7 @@
             this.Controls.Add(this.pictureBox_main);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Employee_add";
             this.Text = "Добавление сотрудников";
             this.Load += new System.EventHandler(this.Employee_add_Load);

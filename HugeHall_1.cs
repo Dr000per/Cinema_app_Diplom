@@ -55,7 +55,7 @@ namespace Cinema_app_Diplom
                             if (place.Row == (int)row_place.Rows[b].ItemArray[0] && place.Number == (int)row_place.Rows[b].ItemArray[1])
                             {
                                 place.BackColor = Color.Red;
-                                place.Enabled = false;
+                                place.Enabled= false;
                             }
                         }
                     }

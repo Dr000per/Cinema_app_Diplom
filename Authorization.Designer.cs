@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Authorization));
             this.label_back = new System.Windows.Forms.Label();
             this.label_auth = new System.Windows.Forms.Label();
             this.label_login = new System.Windows.Forms.Label();
@@ -148,6 +149,7 @@
             this.Controls.Add(this.label_password);
             this.Controls.Add(this.textBox_password);
             this.Controls.Add(this.pictureBox_main);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Authorization";
             this.Text = "Окно авторизации";
             this.Load += new System.EventHandler(this.Authorization_Load);

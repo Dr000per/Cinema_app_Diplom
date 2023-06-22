@@ -147,15 +147,7 @@ namespace Cinema_app_Diplom
 
         private void textBox_surname_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (checkText.CyrillicCheck(ch))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
+
         }
 
         private void textBox_phone_KeyPress(object sender, KeyPressEventArgs e)
@@ -197,6 +189,11 @@ namespace Cinema_app_Diplom
                     e.Handled = true;
                 }
             }
+        }
+
+        private void textBox_surname_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

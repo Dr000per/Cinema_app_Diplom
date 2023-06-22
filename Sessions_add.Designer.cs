@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sessions_add));
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox_hall = new System.Windows.Forms.ComboBox();
             this.comboBox_film = new System.Windows.Forms.ComboBox();
@@ -116,7 +117,7 @@
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(80, 44);
             this.button_add.TabIndex = 38;
-            this.button_add.Text = "Добавить сеанс";
+            this.button_add.Text = "Добавить";
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
             // 
@@ -169,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(500, 359);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox_session_price);
             this.Controls.Add(this.comboBox_session_time);
@@ -182,8 +183,9 @@
             this.Controls.Add(this.comboBox_film);
             this.Controls.Add(this.comboBox_hall);
             this.Controls.Add(this.label4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Sessions_add";
-            this.Text = "Добавление сеансов";
+            this.Text = "Создание сеансов";
             this.Load += new System.EventHandler(this.Sessions_add_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

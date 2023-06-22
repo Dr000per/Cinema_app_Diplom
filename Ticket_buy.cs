@@ -106,6 +106,7 @@ namespace Cinema_app_Diplom
                         foreach (var item in Place.list)
                         {
                             db.ExecuteNonQuery($"insert into tickets values ({id_session}, (select id from places where id_hall = (select id from cinema_hall where name = '{hall_name}') and row = {item.Row} and place = {item.Number}), '{data.ToShortDateString()}', '{date_time_tickets.Rows[0].ItemArray[1]}', 1, '{radioButton_nal.Text}');");
+                            db.ExecuteNonQuery($"insert into tickets_operations values ((select id from tickets where id = (select max(id) from tickets)), (select id_employee from users where login = '{General_values.UserName}'), '{DateTime.Now.Date.ToString("dd-MM-yyyy")}', 'Покупка');");
                         }
                         MessageBox.Show("Оплата прошла успешно!", "Уведомление");
                         Close_ticket_buy();
@@ -115,6 +116,7 @@ namespace Cinema_app_Diplom
                         foreach (var item in Place.list)
                         {
                             db.ExecuteNonQuery($"insert into tickets values ({id_session}, (select id from places where id_hall = (select id from cinema_hall where name = '{hall_name}') and row = {item.Row} and place = {item.Number}), '{data.ToShortDateString()}', '{date_time_tickets.Rows[0].ItemArray[1]}', 1, '{radioButton_beznal.Text}');");
+                            db.ExecuteNonQuery($"insert into tickets_operations values ((select id from tickets where id = (select max(id) from tickets)), (select id_employee from users where login = '{General_values.UserName}'), '{DateTime.Now.Date.ToString("dd-MM-yyyy")}', 'Покупка');");
                         }
                         MessageBox.Show("Оплата прошла успешно!", "Уведомление");
                         Close_ticket_buy();

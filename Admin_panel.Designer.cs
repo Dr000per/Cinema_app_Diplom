@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_panel));
             this.label_close = new System.Windows.Forms.Label();
             this.label_user_add = new System.Windows.Forms.Label();
             this.label_main = new System.Windows.Forms.Label();
@@ -94,6 +95,7 @@
             this.Controls.Add(this.label_user_add);
             this.Controls.Add(this.label_main);
             this.Controls.Add(this.pictureBox_main);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin_panel";
             this.Text = "Панель администратора";
             this.Load += new System.EventHandler(this.Admin_panel_Load);

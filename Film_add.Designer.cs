@@ -408,6 +408,7 @@
             this.Controls.Add(this.textBox_rating);
             this.Controls.Add(this.textBox_poster_path);
             this.Controls.Add(this.textBox_film_name);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Film_add";
             this.Text = "Добавление фильма";
             this.Load += new System.EventHandler(this.Film_add_Load);

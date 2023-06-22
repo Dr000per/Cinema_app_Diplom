@@ -16,7 +16,6 @@ namespace Cinema_app_Diplom
 
         DataTable users = new DataTable();
 
-        General_values userRole = new General_values();
         public Authorization()
         {
             InitializeComponent();
@@ -49,8 +48,9 @@ namespace Cinema_app_Diplom
             users = db.ExecuteSql($"select id_role from users where login = '{textBox_login.Text}' and password = '{textBox_password.Text}'");
             if (users.Rows.Count > 0)
             {
-                userRole.UserRole = (int)users.Rows[0].ItemArray[0];
-                Main_form main = new Main_form(userRole.UserRole);
+                General_values.UserRole = (int)users.Rows[0].ItemArray[0];
+                General_values.UserName = textBox_login.Text.Trim();
+                Main_form main = new Main_form();
                 main.Show();
                 this.Hide();
             }

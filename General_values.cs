@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Cinema_app_Diplom
 {
-    public class General_values
+    public static class General_values
     {
-        public int UserRole;
+        public static int UserRole { get; set; }
+        public static string UserName { get; set; }
     }
 }

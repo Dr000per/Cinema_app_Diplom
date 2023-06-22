@@ -13,12 +13,12 @@ namespace Cinema_app_Diplom
     public partial class Main_form : Form
     {
         int role;
-        public Main_form(int role_id)
+        public Main_form()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedDialog;
             this.StartPosition = FormStartPosition.CenterScreen;
-            role = role_id;
+            role = General_values.UserRole;
         }
 
         private void Main_form_Load(object sender, EventArgs e)
@@ -40,6 +40,10 @@ namespace Cinema_app_Diplom
             else if (role == 5)
             {
                 label_menu_for_adm.Visible = false;
+            }
+            else if(role == 4)
+            {
+                label_menu_for_operators.Visible = false;
             }
         }
 

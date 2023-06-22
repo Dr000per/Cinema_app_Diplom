@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users_add));
             this.label_back = new System.Windows.Forms.Label();
             this.label_add = new System.Windows.Forms.Label();
             this.label_login = new System.Windows.Forms.Label();
@@ -201,8 +202,9 @@
             this.Controls.Add(this.textBox_password);
             this.Controls.Add(this.label_main);
             this.Controls.Add(this.pictureBox_main);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Users_add";
-            this.Text = "Users_add";
+            this.Text = "Добавление пользователя";
             this.Load += new System.EventHandler(this.Users_add_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).EndInit();
             this.ResumeLayout(false);
