@@ -23,14 +23,6 @@ namespace Cinema_app_Diplom
 
         private void Managers_menu_Load(object sender, EventArgs e)
         {
-            pictureBox_main.BringToFront();
-            pictureBox_main.BackColor = Color.Transparent;
-
-            label_main.Parent = pictureBox_main;
-            label_film_add.Parent = pictureBox_main;
-            label_sessions_create.Parent = pictureBox_main;
-            label_close.Parent = pictureBox_main;
-            label_employee_add.Parent = pictureBox_main;
         }
 
         private void label_close_Click(object sender, EventArgs e)
@@ -58,6 +50,11 @@ namespace Cinema_app_Diplom
             Employee_add employee_Add = new Employee_add(this);
             employee_Add.Show();
             this.Hide();
+        }
+
+        private void Managers_menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

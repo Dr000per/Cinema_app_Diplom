@@ -29,22 +29,6 @@ namespace Cinema_app_Diplom
 
         private void Users_add_Load(object sender, EventArgs e)
         {
-            pictureBox_main.BringToFront();
-
-            label_add.Parent = pictureBox_main;
-            label_back.Parent = pictureBox_main;
-            label_login.Parent = pictureBox_main;
-            label_main.Parent = pictureBox_main;
-            label_post.Parent = pictureBox_main;
-            label_password.Parent = pictureBox_main;
-            label_email.Parent = pictureBox_main;
-            
-            textBox_login.Parent = pictureBox_main;
-            textBox_password.Parent = pictureBox_main;
-
-            comboBox_roles.Parent = pictureBox_main;
-            comboBox_email.Parent = pictureBox_main;
-
             roles = db.ExecuteSql($"select name from roles");
 
             for (int i = 0; i < roles.Rows.Count; i++)
@@ -65,19 +49,19 @@ namespace Cinema_app_Diplom
                     if (result == DialogResult.Yes)
                     {
                         db.ExecuteNonQuery($"insert into users values ((select id from roles where name = '{comboBox_roles.SelectedItem}'), (select id from employee where email = '{comboBox_email.SelectedItem}'),'{textBox_login.Text.Trim()}', '{textBox_password.Text.Trim()}');");
-                        MessageBox.Show("Пользователь успешно добавлен", "Уведомление");
+                        MessageBox.Show("Пользователь успешно добавлен", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearBoxes();
                         EmailsAdd();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Убедитесь, что все нужные поля заполнены", "Уведомление");
+                    MessageBox.Show("Убедитесь, что все нужные поля заполнены", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch
             {
-                MessageBox.Show("Что-то пошлок не так", "Уведомление");
+                MessageBox.Show("Что-то пошлок не так", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -135,6 +119,11 @@ namespace Cinema_app_Diplom
             {
                 e.Handled = true;
             }
+        }
+
+        private void Users_add_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

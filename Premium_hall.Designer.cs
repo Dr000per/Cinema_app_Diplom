@@ -86,15 +86,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button_buy_tickets = new System.Windows.Forms.Button();
-            this.button_back = new System.Windows.Forms.Button();
+            this.label_buy_tickets = new System.Windows.Forms.Label();
+            this.label_back = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(45, 310);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 18);
@@ -104,7 +106,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(45, 281);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 18);
@@ -114,7 +118,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(45, 252);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 18);
@@ -124,7 +130,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(45, 223);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 18);
@@ -134,7 +142,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(45, 194);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 18);
@@ -154,7 +164,9 @@
             // 
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(474, 11);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(48, 15);
@@ -165,7 +177,9 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(428, 6);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 24);
@@ -747,7 +761,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(544, 310);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 18);
@@ -757,7 +773,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(544, 281);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 18);
@@ -767,7 +785,9 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(544, 252);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 18);
@@ -777,7 +797,9 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(544, 223);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 18);
@@ -787,40 +809,50 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(544, 194);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 18);
             this.label10.TabIndex = 393;
             this.label10.Text = "1 ряд";
             // 
-            // button_buy_tickets
+            // label_buy_tickets
             // 
-            this.button_buy_tickets.Location = new System.Drawing.Point(470, 341);
-            this.button_buy_tickets.Name = "button_buy_tickets";
-            this.button_buy_tickets.Size = new System.Drawing.Size(127, 31);
-            this.button_buy_tickets.TabIndex = 1158;
-            this.button_buy_tickets.Text = "Оплата";
-            this.button_buy_tickets.UseVisualStyleBackColor = true;
-            this.button_buy_tickets.Click += new System.EventHandler(this.button_buy_tickets_Click);
+            this.label_buy_tickets.AutoSize = true;
+            this.label_buy_tickets.BackColor = System.Drawing.Color.Transparent;
+            this.label_buy_tickets.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_buy_tickets.ForeColor = System.Drawing.Color.White;
+            this.label_buy_tickets.Location = new System.Drawing.Point(494, 345);
+            this.label_buy_tickets.Name = "label_buy_tickets";
+            this.label_buy_tickets.Size = new System.Drawing.Size(72, 23);
+            this.label_buy_tickets.TabIndex = 1166;
+            this.label_buy_tickets.Text = "Оплата";
+            this.label_buy_tickets.Click += new System.EventHandler(this.label_buy_tickets_Click);
             // 
-            // button_back
+            // label_back
             // 
-            this.button_back.Location = new System.Drawing.Point(12, 9);
-            this.button_back.Name = "button_back";
-            this.button_back.Size = new System.Drawing.Size(76, 23);
-            this.button_back.TabIndex = 1160;
-            this.button_back.Text = "Назад";
-            this.button_back.UseVisualStyleBackColor = true;
-            this.button_back.Click += new System.EventHandler(this.button_back_Click);
+            this.label_back.AutoSize = true;
+            this.label_back.BackColor = System.Drawing.Color.Transparent;
+            this.label_back.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_back.ForeColor = System.Drawing.Color.White;
+            this.label_back.Location = new System.Drawing.Point(12, 11);
+            this.label_back.Name = "label_back";
+            this.label_back.Size = new System.Drawing.Size(62, 23);
+            this.label_back.TabIndex = 1165;
+            this.label_back.Text = "Назад";
+            this.label_back.Click += new System.EventHandler(this.label_back_Click);
             // 
             // Premium_hall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(613, 377);
-            this.Controls.Add(this.button_back);
-            this.Controls.Add(this.button_buy_tickets);
+            this.Controls.Add(this.label_buy_tickets);
+            this.Controls.Add(this.label_back);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -878,9 +910,11 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Premium_hall";
             this.Text = "Схема диванного зала";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Premium_hall_FormClosed);
             this.Load += new System.EventHandler(this.Premium_hall_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -946,7 +980,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button_buy_tickets;
-        private System.Windows.Forms.Button button_back;
+        private System.Windows.Forms.Label label_buy_tickets;
+        private System.Windows.Forms.Label label_back;
     }
 }

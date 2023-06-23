@@ -34,8 +34,6 @@
             this.label_film_add = new System.Windows.Forms.Label();
             this.label_main = new System.Windows.Forms.Label();
             this.label_employee_add = new System.Windows.Forms.Label();
-            this.pictureBox_main = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).BeginInit();
             this.SuspendLayout();
             // 
             // label_close
@@ -102,35 +100,25 @@
             this.label_employee_add.Text = "Добавление сотрудников";
             this.label_employee_add.Click += new System.EventHandler(this.label_employee_add_Click);
             // 
-            // pictureBox_main
-            // 
-            this.pictureBox_main.BackColor = System.Drawing.Color.Black;
-            this.pictureBox_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_main.Image = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
-            this.pictureBox_main.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_main.Name = "pictureBox_main";
-            this.pictureBox_main.Size = new System.Drawing.Size(800, 450);
-            this.pictureBox_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_main.TabIndex = 6;
-            this.pictureBox_main.TabStop = false;
-            // 
             // Managers_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImage = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label_employee_add);
             this.Controls.Add(this.label_close);
             this.Controls.Add(this.label_sessions_create);
             this.Controls.Add(this.label_film_add);
             this.Controls.Add(this.label_main);
-            this.Controls.Add(this.pictureBox_main);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Managers_menu";
             this.Text = "Меню для менеджеров";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Managers_menu_FormClosed);
             this.Load += new System.EventHandler(this.Managers_menu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,7 +130,6 @@
         private System.Windows.Forms.Label label_sessions_create;
         private System.Windows.Forms.Label label_film_add;
         private System.Windows.Forms.Label label_main;
-        private System.Windows.Forms.PictureBox pictureBox_main;
         private System.Windows.Forms.Label label_employee_add;
     }
 }

@@ -28,25 +28,6 @@ namespace Cinema_app_Diplom
 
         private void Employee_add_Load(object sender, EventArgs e)
         {
-            pictureBox_main.BringToFront();
-
-            label_add.Parent= pictureBox_main;
-            label_back.Parent= pictureBox_main;
-            label_email.Parent= pictureBox_main;
-            label_firstname.Parent= pictureBox_main;
-            label_main.Parent= pictureBox_main;
-            label_surname.Parent= pictureBox_main;
-            label_post.Parent= pictureBox_main;
-            label_middlename.Parent= pictureBox_main;
-            label_phone.Parent= pictureBox_main;
-
-            comboBox_post.Parent= pictureBox_main;
-            textBox_email.Parent= pictureBox_main;
-            textBox_firstname.Parent= pictureBox_main;
-            textBox_middlename.Parent= pictureBox_main;
-            textBox_surname.Parent= pictureBox_main;
-            textBox_phone.Parent= pictureBox_main;
-
             textBox_firstname.KeyPress += textBox_surname_KeyPress;
             textBox_middlename.KeyPress += textBox_surname_KeyPress;
 
@@ -68,7 +49,7 @@ namespace Cinema_app_Diplom
                     if (result == DialogResult.Yes)
                     {
                         db.ExecuteNonQuery($"insert into employee values ((select id from post where name = '{comboBox_post.SelectedItem}'), '{textBox_surname.Text.Trim()}', '{textBox_firstname.Text.Trim()}', 'Отсутствует', '{textBox_email.Text.Trim()}', '{textBox_phone.Text.Trim()}');");
-                        MessageBox.Show("Сотрудник успешно добавлен", "Уведомление");
+                        MessageBox.Show("Сотрудник успешно добавлен", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearBoxes();
                     }
                 }
@@ -79,18 +60,18 @@ namespace Cinema_app_Diplom
                     if (result == DialogResult.Yes)
                     {
                         db.ExecuteNonQuery($"insert into employee values ((select id from post where name = '{comboBox_post.SelectedItem}'), '{textBox_surname.Text.Trim()}', '{textBox_firstname.Text.Trim()}', '{textBox_middlename.Text.Trim()}', '{textBox_email.Text.Trim()}', '{textBox_phone.Text.Trim()}');");
-                        MessageBox.Show("Сотрудник успешно добавлен", "Уведомление");
+                        MessageBox.Show("Сотрудник успешно добавлен", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearBoxes();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Убедитесь, что все нужные поля заполнены", "Уведомление");
+                    MessageBox.Show("Убедитесь, что все нужные поля заполнены", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch
             {
-                MessageBox.Show("Что-то пошлок не так", "Уведомление");
+                MessageBox.Show("Что-то пошлок не так", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -194,6 +175,11 @@ namespace Cinema_app_Diplom
         private void textBox_surname_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Employee_add_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

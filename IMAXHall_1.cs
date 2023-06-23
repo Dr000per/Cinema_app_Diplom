@@ -29,6 +29,8 @@ namespace Cinema_app_Diplom
             id_session = id_sess;
             this.sessions = form;
             label1.Font = new Font(label1.Font, FontStyle.Bold);
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void IMAXHall_1_Load(object sender, EventArgs e)
@@ -64,17 +66,7 @@ namespace Cinema_app_Diplom
                 }
             }
         }
-        private void button_buy_tickets_Click(object sender, EventArgs e)
-        {
-            if (Place.list.Count > 0)
-            {
-                Open_ticket_buy();
-            }
-            else
-            {
-                MessageBox.Show("Для начала выберите место/места на схеме", "Уведомление");
-            }
-        }
+
         private void Open_ticket_buy()
         {
             Ticket_buy ticket_Buy = new Ticket_buy(id_session, hall_name, this);
@@ -88,16 +80,34 @@ namespace Cinema_app_Diplom
             this.Show();
         }
 
-        private void button_back_Click(object sender, EventArgs e)
-        {
-            Close_hall_form();
-        }
 
         private void Close_hall_form()
         {
             sessions.Show();
             hall_form_close?.Invoke(this, EventArgs.Empty);
             this.Close();
+        }
+
+        private void label_back_Click(object sender, EventArgs e)
+        {
+            Close_hall_form();
+        }
+
+        private void label_buy_tickets_Click(object sender, EventArgs e)
+        {
+            if (Place.list.Count > 0)
+            {
+                Open_ticket_buy();
+            }
+            else
+            {
+                MessageBox.Show("Для начала выберите место/места на схеме", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void IMAXHall_1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

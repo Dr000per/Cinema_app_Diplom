@@ -19,11 +19,14 @@ namespace Cinema_app_Diplom
         DataBase db = new DataBase();
         DataTable film = new DataTable();
         DateTime date_now = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+
+        CheckingTextBoxes checkText = new CheckingTextBoxes();
         public Film_add(Form main_form)
         {
             InitializeComponent();
             this.main_frm = main_form;
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Film_add_Load(object sender, EventArgs e)
@@ -76,7 +79,56 @@ namespace Cinema_app_Diplom
                 e.Handled = true;
             }
         }
-        private void button_add_Click(object sender, EventArgs e)
+
+        private void button_close_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button_country_add_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button_genre_add_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox_poster_path_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textBox_poster_path.Text = openFileDialog1.FileName;
+            }
+        }
+
+        private void dateTimePicker_start_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePicker_finish.MinDate = dateTimePicker_start.Value.AddDays(1);
+            dateTimePicker_finish.MaxDate = dateTimePicker_start.Value.AddDays(14);
+        }
+
+        private void dateTimePicker_finish_ValueChanged(object sender, EventArgs e)
+        {
+            if(dateTimePicker_finish.Value > dateTimePicker_start.Value.AddDays(14))
+            {
+                dateTimePicker_finish.Value = dateTimePicker_start.Value.AddDays(14);
+                dateTimePicker_finish.MinDate = dateTimePicker_start.Value.AddDays(1);
+                dateTimePicker_finish.MaxDate = dateTimePicker_start.Value.AddDays(14);
+            }
+        }
+
+        static bool IsNullorWhitespace(params string[] values)
+        {
+            foreach(string item in values)
+            {
+                if(string.IsNullOrWhiteSpace((string)item)) return false;
+            }
+            return true;
+        }
+
+        private void label_add_film_Click(object sender, EventArgs e)
         {
             if (IsNullorWhitespace(textBox_company.Text, textBox_film_name.Text, textBox_poster_path.Text, textBox_rating.Text, richTextBox_country.Text, richTextBox_description.Text, richTextBox_genre.Text))
             {
@@ -114,73 +166,86 @@ namespace Cinema_app_Diplom
                             }
                             catch
                             {
-                                MessageBox.Show("Что-то пошло не так, проверьте все ли поля заполнены", "Ошибка!");
+                                MessageBox.Show("Что-то пошло не так, проверьте все ли поля заполнены", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show($"Введённые Вами данные уже существуют в базе, фильм " + $"{textBox_film_name.Text.Trim()}" + " от компании " + $"{textBox_company.Text.Trim()}" + " уже в прокате", "Попытка добавить существующий фильм!");
+                            MessageBox.Show($"Введённые Вами данные уже существуют в базе, фильм " + $"{textBox_film_name.Text.Trim()}" + " от компании " + $"{textBox_company.Text.Trim()}" + " уже в прокате", "Попытка добавить существующий фильм!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     catch
                     {
-                        MessageBox.Show("Что-то пошло не так, проверьте все ли поля заполнены", "Ошибка!");
+                        MessageBox.Show("Что-то пошло не так, проверьте все ли поля заполнены", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Убедитесь, что все поля заполнены!", "Ошибка добавления");
+                MessageBox.Show("Убедитесь, что все поля заполнены!", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void button_close_Click(object sender, EventArgs e)
+        private void label_back_Click(object sender, EventArgs e)
         {
             main_frm.Show();
             this.Close();
         }
 
-        private void button_country_add_Click(object sender, EventArgs e)
-        {
-            richTextBox_country.Text += comboBox_country.SelectedItem.ToString() + ", ";
-        }
-
-        private void button_genre_add_Click(object sender, EventArgs e)
+        private void label_add_genre_Click(object sender, EventArgs e)
         {
             richTextBox_genre.Text += comboBox_genre.SelectedItem.ToString() + ", ";
         }
 
-        private void pictureBox_poster_path_Click(object sender, EventArgs e)
+        private void label_add_country_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            richTextBox_country.Text += comboBox_country.SelectedItem.ToString() + ", ";
+        }
+
+        private void textBox_rating_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!checkText.LengthCheck(textBox_rating.Text, 4))
             {
-                textBox_poster_path.Text = openFileDialog1.FileName;
+                if (!textBox_rating.Text.Contains(","))
+                {
+                    if (checkText.NumCheck(ch) || ch == ',')
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+                else
+                {
+                    if (checkText.NumCheck(ch))
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+            else
+            {
+                if (ch == '\b')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
             }
         }
 
-        private void dateTimePicker_start_ValueChanged(object sender, EventArgs e)
+        private void Film_add_FormClosed(object sender, FormClosedEventArgs e)
         {
-            dateTimePicker_finish.MinDate = dateTimePicker_start.Value.AddDays(1);
-            dateTimePicker_finish.MaxDate = dateTimePicker_start.Value.AddDays(14);
-        }
-
-        private void dateTimePicker_finish_ValueChanged(object sender, EventArgs e)
-        {
-            if(dateTimePicker_finish.Value > dateTimePicker_start.Value.AddDays(14))
-            {
-                dateTimePicker_finish.Value = dateTimePicker_start.Value.AddDays(14);
-                dateTimePicker_finish.MinDate = dateTimePicker_start.Value.AddDays(1);
-                dateTimePicker_finish.MaxDate = dateTimePicker_start.Value.AddDays(14);
-            }
-        }
-
-        static bool IsNullorWhitespace(params string[] values)
-        {
-            foreach(string item in values)
-            {
-                if(string.IsNullOrWhiteSpace((string)item)) return false;
-            }
-            return true;
+            Application.Exit();
         }
     }
 }

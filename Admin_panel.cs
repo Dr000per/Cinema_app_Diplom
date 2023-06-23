@@ -17,17 +17,12 @@ namespace Cinema_app_Diplom
         {
             InitializeComponent();
             this.StartPosition= FormStartPosition.CenterScreen;
-            main_form= form;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            main_form = form;
         }
 
         private void Admin_panel_Load(object sender, EventArgs e)
         {
-            pictureBox_main.BringToFront();
-            pictureBox_main.BackColor = Color.Transparent;
-
-            label_main.Parent = pictureBox_main;
-            label_user_add.Parent = pictureBox_main;
-            label_close.Parent = pictureBox_main;
         }
 
         private void label_close_Click(object sender, EventArgs e)
@@ -41,6 +36,11 @@ namespace Cinema_app_Diplom
             Users_add users_Add = new Users_add(this);
             users_Add.Show();
             this.Hide();
+        }
+
+        private void Admin_panel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

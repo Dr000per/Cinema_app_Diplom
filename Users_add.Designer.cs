@@ -36,17 +36,16 @@
             this.label_password = new System.Windows.Forms.Label();
             this.textBox_password = new System.Windows.Forms.TextBox();
             this.label_main = new System.Windows.Forms.Label();
-            this.pictureBox_main = new System.Windows.Forms.PictureBox();
             this.comboBox_roles = new System.Windows.Forms.ComboBox();
             this.label_post = new System.Windows.Forms.Label();
             this.comboBox_email = new System.Windows.Forms.ComboBox();
             this.label_email = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).BeginInit();
             this.SuspendLayout();
             // 
             // label_back
             // 
             this.label_back.AutoSize = true;
+            this.label_back.BackColor = System.Drawing.Color.Transparent;
             this.label_back.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_back.ForeColor = System.Drawing.Color.White;
             this.label_back.Location = new System.Drawing.Point(211, 356);
@@ -59,6 +58,7 @@
             // label_add
             // 
             this.label_add.AutoSize = true;
+            this.label_add.BackColor = System.Drawing.Color.Transparent;
             this.label_add.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_add.ForeColor = System.Drawing.Color.White;
             this.label_add.Location = new System.Drawing.Point(181, 312);
@@ -71,6 +71,7 @@
             // label_login
             // 
             this.label_login.AutoSize = true;
+            this.label_login.BackColor = System.Drawing.Color.Transparent;
             this.label_login.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_login.ForeColor = System.Drawing.Color.White;
             this.label_login.Location = new System.Drawing.Point(75, 188);
@@ -94,6 +95,7 @@
             // label_password
             // 
             this.label_password.AutoSize = true;
+            this.label_password.BackColor = System.Drawing.Color.Transparent;
             this.label_password.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_password.ForeColor = System.Drawing.Color.White;
             this.label_password.Location = new System.Drawing.Point(75, 233);
@@ -117,6 +119,7 @@
             // label_main
             // 
             this.label_main.AutoSize = true;
+            this.label_main.BackColor = System.Drawing.Color.Transparent;
             this.label_main.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_main.ForeColor = System.Drawing.Color.White;
             this.label_main.Location = new System.Drawing.Point(73, 9);
@@ -124,18 +127,6 @@
             this.label_main.Size = new System.Drawing.Size(337, 33);
             this.label_main.TabIndex = 16;
             this.label_main.Text = "Добавление пользователя:";
-            // 
-            // pictureBox_main
-            // 
-            this.pictureBox_main.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_main.Image = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
-            this.pictureBox_main.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_main.Name = "pictureBox_main";
-            this.pictureBox_main.Size = new System.Drawing.Size(467, 412);
-            this.pictureBox_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_main.TabIndex = 23;
-            this.pictureBox_main.TabStop = false;
             // 
             // comboBox_roles
             // 
@@ -153,6 +144,7 @@
             // label_post
             // 
             this.label_post.AutoSize = true;
+            this.label_post.BackColor = System.Drawing.Color.Transparent;
             this.label_post.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_post.ForeColor = System.Drawing.Color.White;
             this.label_post.Location = new System.Drawing.Point(75, 86);
@@ -177,6 +169,7 @@
             // label_email
             // 
             this.label_email.AutoSize = true;
+            this.label_email.BackColor = System.Drawing.Color.Transparent;
             this.label_email.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_email.ForeColor = System.Drawing.Color.White;
             this.label_email.Location = new System.Drawing.Point(74, 137);
@@ -189,6 +182,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(467, 412);
             this.Controls.Add(this.comboBox_email);
             this.Controls.Add(this.label_email);
@@ -201,12 +196,12 @@
             this.Controls.Add(this.label_password);
             this.Controls.Add(this.textBox_password);
             this.Controls.Add(this.label_main);
-            this.Controls.Add(this.pictureBox_main);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Users_add";
             this.Text = "Добавление пользователя";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Users_add_FormClosed);
             this.Load += new System.EventHandler(this.Users_add_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,7 +216,6 @@
         private System.Windows.Forms.Label label_password;
         private System.Windows.Forms.TextBox textBox_password;
         private System.Windows.Forms.Label label_main;
-        private System.Windows.Forms.PictureBox pictureBox_main;
         private System.Windows.Forms.ComboBox comboBox_roles;
         private System.Windows.Forms.Label label_post;
         private System.Windows.Forms.ComboBox comboBox_email;

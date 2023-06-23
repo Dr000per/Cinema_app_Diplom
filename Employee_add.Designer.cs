@@ -44,8 +44,6 @@
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.label_add = new System.Windows.Forms.Label();
             this.label_back = new System.Windows.Forms.Label();
-            this.pictureBox_main = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_surname
@@ -74,6 +72,7 @@
             // label_surname
             // 
             this.label_surname.AutoSize = true;
+            this.label_surname.BackColor = System.Drawing.Color.Transparent;
             this.label_surname.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_surname.ForeColor = System.Drawing.Color.White;
             this.label_surname.Location = new System.Drawing.Point(277, 55);
@@ -85,6 +84,7 @@
             // label_firstname
             // 
             this.label_firstname.AutoSize = true;
+            this.label_firstname.BackColor = System.Drawing.Color.Transparent;
             this.label_firstname.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_firstname.ForeColor = System.Drawing.Color.White;
             this.label_firstname.Location = new System.Drawing.Point(277, 101);
@@ -96,6 +96,7 @@
             // label_post
             // 
             this.label_post.AutoSize = true;
+            this.label_post.BackColor = System.Drawing.Color.Transparent;
             this.label_post.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_post.ForeColor = System.Drawing.Color.White;
             this.label_post.Location = new System.Drawing.Point(47, 55);
@@ -120,6 +121,7 @@
             // label_main
             // 
             this.label_main.AutoSize = true;
+            this.label_main.BackColor = System.Drawing.Color.Transparent;
             this.label_main.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_main.ForeColor = System.Drawing.Color.White;
             this.label_main.Location = new System.Drawing.Point(73, 9);
@@ -131,6 +133,7 @@
             // label_middlename
             // 
             this.label_middlename.AutoSize = true;
+            this.label_middlename.BackColor = System.Drawing.Color.Transparent;
             this.label_middlename.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_middlename.ForeColor = System.Drawing.Color.White;
             this.label_middlename.Location = new System.Drawing.Point(277, 149);
@@ -153,6 +156,7 @@
             // label_phone
             // 
             this.label_phone.AutoSize = true;
+            this.label_phone.BackColor = System.Drawing.Color.Transparent;
             this.label_phone.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_phone.ForeColor = System.Drawing.Color.White;
             this.label_phone.Location = new System.Drawing.Point(47, 146);
@@ -176,6 +180,7 @@
             // label_email
             // 
             this.label_email.AutoSize = true;
+            this.label_email.BackColor = System.Drawing.Color.Transparent;
             this.label_email.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_email.ForeColor = System.Drawing.Color.White;
             this.label_email.Location = new System.Drawing.Point(47, 101);
@@ -199,6 +204,7 @@
             // label_add
             // 
             this.label_add.AutoSize = true;
+            this.label_add.BackColor = System.Drawing.Color.Transparent;
             this.label_add.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_add.ForeColor = System.Drawing.Color.White;
             this.label_add.Location = new System.Drawing.Point(181, 282);
@@ -211,6 +217,7 @@
             // label_back
             // 
             this.label_back.AutoSize = true;
+            this.label_back.BackColor = System.Drawing.Color.Transparent;
             this.label_back.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_back.ForeColor = System.Drawing.Color.White;
             this.label_back.Location = new System.Drawing.Point(211, 326);
@@ -220,24 +227,14 @@
             this.label_back.Text = "Назад";
             this.label_back.Click += new System.EventHandler(this.label_back_Click);
             // 
-            // pictureBox_main
-            // 
-            this.pictureBox_main.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_main.Image = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
-            this.pictureBox_main.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_main.Name = "pictureBox_main";
-            this.pictureBox_main.Size = new System.Drawing.Size(473, 407);
-            this.pictureBox_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_main.TabIndex = 15;
-            this.pictureBox_main.TabStop = false;
-            // 
             // Employee_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(473, 407);
+            this.BackgroundImage = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(467, 407);
             this.Controls.Add(this.label_back);
             this.Controls.Add(this.label_add);
             this.Controls.Add(this.label_email);
@@ -253,14 +250,13 @@
             this.Controls.Add(this.label_surname);
             this.Controls.Add(this.textBox_firstname);
             this.Controls.Add(this.textBox_surname);
-            this.Controls.Add(this.pictureBox_main);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Employee_add";
             this.Text = "Добавление сотрудников";
             this.Load += new System.EventHandler(this.Employee_add_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,6 +279,5 @@
         private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.Label label_add;
         private System.Windows.Forms.Label label_back;
-        private System.Windows.Forms.PictureBox pictureBox_main;
     }
 }

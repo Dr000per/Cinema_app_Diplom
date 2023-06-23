@@ -23,14 +23,6 @@ namespace Cinema_app_Diplom
 
         private void Main_form_Load(object sender, EventArgs e)
         {
-            pictureBox_main.BringToFront();
-            pictureBox_main.BackColor = Color.Transparent;
-
-            label_main.Parent = pictureBox_main;
-            label_menu_for_operators.Parent = pictureBox_main;
-            label_menu_for_managers.Parent = pictureBox_main;
-            label_menu_for_adm.Parent = pictureBox_main;
-            label_close.Parent = pictureBox_main;
 
             if (role == 6)
             {
@@ -71,6 +63,11 @@ namespace Cinema_app_Diplom
             Admin_panel admin_Panel = new Admin_panel(this);
             admin_Panel.Show();
             this.Hide();
+        }
+
+        private void Main_form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

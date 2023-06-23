@@ -31,16 +31,6 @@ namespace Cinema_app_Diplom
 
         private void Authorization_Load(object sender, EventArgs e)
         {
-            pictureBox_main.BringToFront();
-
-            label_main.Parent = pictureBox_main;
-            label_login.Parent = pictureBox_main;
-            label_password.Parent = pictureBox_main;
-            label_auth.Parent = pictureBox_main;
-            label_back.Parent = pictureBox_main;
-
-            textBox_login.Parent = pictureBox_main;
-            textBox_password.Parent = pictureBox_main;
         }
 
         private void label_auth_Click(object sender, EventArgs e)
@@ -56,8 +46,13 @@ namespace Cinema_app_Diplom
             }
             else
             {
-                MessageBox.Show("Такого пользователя не существует", "Уведомление");
+                MessageBox.Show("Такого пользователя не существует", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void Authorization_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

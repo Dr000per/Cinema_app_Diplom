@@ -36,8 +36,6 @@
             this.label_password = new System.Windows.Forms.Label();
             this.textBox_password = new System.Windows.Forms.TextBox();
             this.label_main = new System.Windows.Forms.Label();
-            this.pictureBox_main = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).BeginInit();
             this.SuspendLayout();
             // 
             // label_back
@@ -124,22 +122,12 @@
             this.label_main.TabIndex = 29;
             this.label_main.Text = "Авторизация";
             // 
-            // pictureBox_main
-            // 
-            this.pictureBox_main.BackColor = System.Drawing.Color.Black;
-            this.pictureBox_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_main.Image = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
-            this.pictureBox_main.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_main.Name = "pictureBox_main";
-            this.pictureBox_main.Size = new System.Drawing.Size(477, 342);
-            this.pictureBox_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_main.TabIndex = 7;
-            this.pictureBox_main.TabStop = false;
-            // 
             // Authorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(477, 342);
             this.Controls.Add(this.label_main);
             this.Controls.Add(this.label_back);
@@ -148,20 +136,18 @@
             this.Controls.Add(this.textBox_login);
             this.Controls.Add(this.label_password);
             this.Controls.Add(this.textBox_password);
-            this.Controls.Add(this.pictureBox_main);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Authorization";
             this.Text = "Окно авторизации";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Authorization_FormClosed);
             this.Load += new System.EventHandler(this.Authorization_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox_main;
         private System.Windows.Forms.Label label_back;
         private System.Windows.Forms.Label label_auth;
         private System.Windows.Forms.Label label_login;

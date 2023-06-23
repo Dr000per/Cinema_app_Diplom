@@ -32,8 +32,6 @@
             this.label_close = new System.Windows.Forms.Label();
             this.label_user_add = new System.Windows.Forms.Label();
             this.label_main = new System.Windows.Forms.Label();
-            this.pictureBox_main = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).BeginInit();
             this.SuspendLayout();
             // 
             // label_close
@@ -74,32 +72,23 @@
             this.label_main.TabIndex = 13;
             this.label_main.Text = "Панель администратора:";
             // 
-            // pictureBox_main
-            // 
-            this.pictureBox_main.BackColor = System.Drawing.Color.Black;
-            this.pictureBox_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_main.Image = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
-            this.pictureBox_main.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_main.Name = "pictureBox_main";
-            this.pictureBox_main.Size = new System.Drawing.Size(800, 450);
-            this.pictureBox_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_main.TabIndex = 12;
-            this.pictureBox_main.TabStop = false;
-            // 
             // Admin_panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Cinema_app_Diplom.Properties.Resources.Screenshot_1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label_close);
             this.Controls.Add(this.label_user_add);
             this.Controls.Add(this.label_main);
-            this.Controls.Add(this.pictureBox_main);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin_panel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Панель администратора";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Admin_panel_FormClosed);
             this.Load += new System.EventHandler(this.Admin_panel_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,6 +99,5 @@
         private System.Windows.Forms.Label label_close;
         private System.Windows.Forms.Label label_user_add;
         private System.Windows.Forms.Label label_main;
-        private System.Windows.Forms.PictureBox pictureBox_main;
     }
 }

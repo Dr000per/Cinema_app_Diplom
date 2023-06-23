@@ -51,7 +51,8 @@ namespace Cinema_app_Diplom
             InitializeComponent();
             main_frm = main_form;
             dateTimePicker1.Value = date_now;
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Sessions_Load(object sender, EventArgs e)
@@ -59,175 +60,195 @@ namespace Cinema_app_Diplom
             Generate_sessions();
         }
         
-
         public void Generate_sessions()
         {
-            DataTable maxdate = db.ExecuteSql($"select max(date) from sessions");
-            dateTimePicker1.MinDate = date_now;
-            dateTimePicker1.MaxDate = (DateTime)maxdate.Rows[0].ItemArray[0];
-            foreach (Control control in Controls.OfType<Control>().ToList())
+            try
             {
-                if (control is Label label && label.Text == "Расписание на")
+                DataTable maxdate = db.ExecuteSql($"select max(date) from sessions");
+                dateTimePicker1.MinDate = date_now;
+                if ((DateTime)maxdate.Rows[0].ItemArray[0] < date_now)
                 {
-                    continue; 
-                }
-                else if (control is DateTimePicker)
-                {
-                    continue;
-                }
-                else if (control is Button button && button.Name == "button_back")
-                {
-                    continue;
+                    dateTimePicker1.MaxDate = date_now;
                 }
                 else
                 {
-                    Controls.Remove(control);
-                    control.Dispose();
+                    dateTimePicker1.MaxDate = (DateTime)maxdate.Rows[0].ItemArray[0];
                 }
-            }
-            films = db.ExecuteSql($"select id, film_genre, film_name, duration, poster, age_rating, film_company from film where '{dateTimePicker1.Value}' between Film_release_start AND Film_release_finish");
-            int pictureBoxCount = films.Rows.Count;
-            for (int i = 0; i < pictureBoxCount; i++)
-            {
-
-                sessions = db.ExecuteSql($"select id, id_hall, id_film, date, time, price from sessions where id_film = (select id from film where film_name = '{films.Rows[i].ItemArray[2]}') and date = '{dateTimePicker1.Value}' order by time asc");
-                PictureBox pictureBox = new PictureBox();
-                Panel panel = new Panel();
-                panel.Controls.Clear();
-                pictureBox.Size = new Size(pictureBoxWidth, pictureBoxHeight);
-                pictureBox.Location = new Point(startX, startY + i * (pictureBoxWidth + spacing_pic));
-                pictureBox.BackColor = Color.LightGray;
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                pictureBox.Image = Image.FromFile(films.Rows[i].ItemArray[4].ToString());
-                panel.Size = new Size(panelWidth, panelHeight);
-                panel.Location = new Point(panel_startX, i * spacing_pnl + panel_startY);
-                panel.BorderStyle = BorderStyle.FixedSingle;
-                panel.BackColor = Color.DarkGray;
-
-                for (int j = 0; j < labelCount; j++)
+                foreach (Control control in Controls.OfType<Control>().ToList())
                 {
-                    Label label = new Label();
-                    switch (j)
+                    if (control is Label label && (label.Name == "label_raspisanie" || label.Name == "label_back"))
                     {
-                        case 0:
-                            label.Text = films.Rows[i].ItemArray[5].ToString();
-                            label.AutoSize = true;
-                            label.Location = new Point(pictureBox.Right + spacing_lbl, pictureBox.Location.Y + j * (labelHeight + 20));
-                            label.Font = new Font((string)"Microsoft Sans Serif", (float)10.5);
-
-                            this.Controls.Add(label);
-                            break;
-
-                        case 1:
-                            label.Text = films.Rows[i].ItemArray[1].ToString();
-                            label.AutoSize = true;
-                            label.Location = new Point(pictureBox.Right + spacing_lbl * 3, pictureBox.Location.Y);
-                            label.Font = new Font((string)"Microsoft Sans Serif", (float)10.5);
-
-                            this.Controls.Add(label);
-                            break;
-
-                        case 2:
-                            label.Text = films.Rows[i].ItemArray[2].ToString();
-                            label.AutoSize = true;
-                            label.Location = new Point(pictureBox.Right + spacing_lbl, pictureBox.Location.Y + j * (labelHeight + 20));
-                            label.Font = new Font((string)"Microsoft Sans Serif", (float)10.5, FontStyle.Bold);
-
-                            this.Controls.Add(label);
-                            break;
-
-                        case 3:
-                            label.Text = films.Rows[i].ItemArray[6].ToString();
-                            label.AutoSize = true;
-                            label.Location = new Point(pictureBox.Right + spacing_lbl, pictureBox.Location.Y + j * (labelHeight + 20));
-                            label.Font = new Font((string)"Microsoft Sans Serif", (float)10.5);
-
-                            this.Controls.Add(label);
-                            break;
-
-                        case 4:
-                            label.Text = films.Rows[i].ItemArray[3].ToString();
-                            label.AutoSize = true;
-                            label.Location = new Point(pictureBox.Right + spacing_lbl, pictureBox.Location.Y + j * (labelHeight + 20));
-                            label.Font = new Font((string)"Microsoft Sans Serif", (float)10.25);
-
-                            this.Controls.Add(label);
-                            break;
+                        continue;
+                    }
+                    else if (control is DateTimePicker)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        Controls.Remove(control);
+                        control.Dispose();
                     }
                 }
-                for (int b = 0; b < sessions.Rows.Count; b++)
+                films = db.ExecuteSql($"select id, film_genre, film_name, duration, poster, age_rating, film_company from film where '{dateTimePicker1.Value}' between Film_release_start AND Film_release_finish");
+                int pictureBoxCount = films.Rows.Count;
+                for (int i = 0; i < pictureBoxCount; i++)
                 {
-                    Button button = new Button();
-                    Label label = new Label();
-                    DataTable hall_name = db.ExecuteSql($"select name from cinema_hall where id = {sessions.Rows[b].ItemArray[1]}");
-                    decimal price = (decimal)sessions.Rows[b].ItemArray[5];
-                    DateTime dt_now = DateTime.Now.Date;
-                    DateTime session_time = dateTimePicker1.Value.Add((TimeSpan)sessions.Rows[b].ItemArray[4]);
-                    button.Text = $"{session_time.ToShortTimeString()}\n  {(int)Math.Round(price)}" + " руб.";
-                    button.Size = new Size(buttonWidth, buttonHeight);
-                    button.Location = new Point(button_startX + (buttonWidth + spacing_btn) * b, button_startY);
-                    button.BackColor = Color.DarkGoldenrod;
-                    button.FlatStyle = FlatStyle.Popup;
-                    button.Font = new Font((string)"Microsoft Sans Serif", (float)10, FontStyle.Bold);
 
-                    label.Text = hall_name.Rows[0].ItemArray[0].ToString();
-                    label.AutoSize = false;
-                    label.Size = new Size(buttonWidth, buttonHeight);
-                    label.Location = new Point((button_startX + (buttonWidth + spacing_btn) * b), button_startY + 45);
-                    label.Font = new Font((string)"Microsoft Sans Serif", (float)10);
-                    label.TextAlign = ContentAlignment.TopCenter;
+                    sessions = db.ExecuteSql($"select id, id_hall, id_film, date, time, price from sessions where id_film = (select id from film where film_name = '{films.Rows[i].ItemArray[2]}') and date = '{dateTimePicker1.Value}' order by time asc");
+                    PictureBox pictureBox = new PictureBox();
+                    Panel panel = new Panel();
+                    panel.Controls.Clear();
+                    pictureBox.Size = new Size(pictureBoxWidth, pictureBoxHeight);
+                    pictureBox.Location = new Point(startX, startY + i * (pictureBoxWidth + spacing_pic));
+                    pictureBox.BackColor = Color.LightGray;
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox.Image = Image.FromFile(films.Rows[i].ItemArray[4].ToString());
+                    panel.Size = new Size(panelWidth, panelHeight);
+                    panel.Location = new Point(panel_startX, i * spacing_pnl + panel_startY);
+                    panel.BorderStyle = BorderStyle.FixedSingle;
+                    panel.BackColor = Color.DarkGray;
 
-                    int id_ses = Convert.ToInt32(sessions.Rows[b].ItemArray[0]);
-
-                    button.Click += delegate (object sender, EventArgs e)
+                    for (int j = 0; j < labelCount; j++)
                     {
-                        switch (label.Text)
+                        Label label = new Label();
+                        switch (j)
                         {
-                            case "Стандарт 1":
-                                MiddleHall_1 standart_1 = new MiddleHall_1(label.Text, id_ses, this);
-                                standart_1.hall_form_close += Hall_form_close;
-                                standart_1.Show();
-                                this.Hide();
+                            case 0:
+                                label.Text = films.Rows[i].ItemArray[5].ToString();
+                                label.AutoSize = true;
+                                label.Location = new Point(pictureBox.Right + spacing_lbl, pictureBox.Location.Y + j * (labelHeight + 20));
+                                label.Font = new Font((string)"Microsoft Sans Serif", (float)10.5);
+                                label.ForeColor = Color.White;
+                                label.BackColor = Color.Transparent;
+
+                                this.Controls.Add(label);
                                 break;
 
-                            case "Стандарт 2":
-                                MiddleHall_2 standart_2 = new MiddleHall_2(label.Text, id_ses, this);
-                                standart_2.hall_form_close += Hall_form_close;
-                                standart_2.Show();
-                                this.Hide();
+                            case 1:
+                                label.Text = films.Rows[i].ItemArray[1].ToString();
+                                label.AutoSize = true;
+                                label.Location = new Point(pictureBox.Right + spacing_lbl * 3, pictureBox.Location.Y);
+                                label.Font = new Font((string)"Microsoft Sans Serif", (float)10.5);
+                                label.ForeColor = Color.White;
+                                label.BackColor = Color.Transparent;
+
+                                this.Controls.Add(label);
                                 break;
 
-                            case "IMAX":
-                                IMAXHall_1 IMAX_1 = new IMAXHall_1(label.Text, id_ses, this);
-                                IMAX_1.hall_form_close += Hall_form_close;
-                                IMAX_1.Show();
-                                this.Hide();
+                            case 2:
+                                label.Text = films.Rows[i].ItemArray[2].ToString();
+                                label.AutoSize = true;
+                                label.Location = new Point(pictureBox.Right + spacing_lbl, pictureBox.Location.Y + j * (labelHeight + 20));
+                                label.Font = new Font((string)"Microsoft Sans Serif", (float)10.5, FontStyle.Bold);
+                                label.ForeColor = Color.White;
+                                label.BackColor = Color.Transparent;
+
+                                this.Controls.Add(label);
                                 break;
 
-                            case "Большой зал":
-                                HugeHall_1 hugeHall_1 = new HugeHall_1(label.Text, id_ses, this);
-                                hugeHall_1.hall_form_close += Hall_form_close;
-                                hugeHall_1.Show();
-                                this.Hide();
+                            case 3:
+                                label.Text = films.Rows[i].ItemArray[6].ToString();
+                                label.AutoSize = true;
+                                label.Location = new Point(pictureBox.Right + spacing_lbl, pictureBox.Location.Y + j * (labelHeight + 20));
+                                label.Font = new Font((string)"Microsoft Sans Serif", (float)10.5);
+                                label.ForeColor = Color.White;
+                                label.BackColor = Color.Transparent;
+
+                                this.Controls.Add(label);
                                 break;
 
-                            case "Диванный зал":
-                                Premium_hall premium_Hall = new Premium_hall(label.Text, id_ses, this);
-                                premium_Hall.hall_form_close += Hall_form_close;
-                                premium_Hall.Show();
-                                this.Hide();
+                            case 4:
+                                label.Text = films.Rows[i].ItemArray[3].ToString();
+                                label.AutoSize = true;
+                                label.Location = new Point(pictureBox.Right + spacing_lbl, pictureBox.Location.Y + j * (labelHeight + 20));
+                                label.Font = new Font((string)"Microsoft Sans Serif", (float)10.25);
+                                label.ForeColor = Color.White;
+                                label.BackColor = Color.Transparent;
+
+                                this.Controls.Add(label);
                                 break;
                         }
-                    };
-
-                    if(session_time > DateTime.Now)
-                    {
-                        panel.Controls.Add(button);
-                        panel.Controls.Add(label);
                     }
+                    for (int b = 0; b < sessions.Rows.Count; b++)
+                    {
+                        Button button = new Button();
+                        Label label = new Label();
+                        DataTable hall_name = db.ExecuteSql($"select name from cinema_hall where id = {sessions.Rows[b].ItemArray[1]}");
+                        decimal price = (decimal)sessions.Rows[b].ItemArray[5];
+                        DateTime dt_now = DateTime.Now.Date;
+                        DateTime session_time = dateTimePicker1.Value.Add((TimeSpan)sessions.Rows[b].ItemArray[4]);
+                        button.Text = $"{session_time.ToShortTimeString()}\n  {(int)Math.Round(price)}" + " руб.";
+                        button.Size = new Size(buttonWidth, buttonHeight);
+                        button.Location = new Point(button_startX + (buttonWidth + spacing_btn) * b, button_startY);
+                        button.BackColor = Color.DarkGoldenrod;
+                        button.FlatStyle = FlatStyle.Popup;
+                        button.Font = new Font((string)"Microsoft Sans Serif", (float)10, FontStyle.Bold);
+
+                        label.Text = hall_name.Rows[0].ItemArray[0].ToString();
+                        label.AutoSize = false;
+                        label.Size = new Size(buttonWidth, buttonHeight);
+                        label.Location = new Point((button_startX + (buttonWidth + spacing_btn) * b), button_startY + 45);
+                        label.Font = new Font((string)"Microsoft Sans Serif", (float)10);
+                        label.TextAlign = ContentAlignment.TopCenter;
+                        label.ForeColor = Color.Black;
+
+                        int id_ses = Convert.ToInt32(sessions.Rows[b].ItemArray[0]);
+
+                        button.Click += delegate (object sender, EventArgs e)
+                        {
+                            switch (label.Text)
+                            {
+                                case "Стандарт 1":
+                                    MiddleHall_1 standart_1 = new MiddleHall_1(label.Text, id_ses, this);
+                                    standart_1.hall_form_close += Hall_form_close;
+                                    standart_1.Show();
+                                    this.Hide();
+                                    break;
+
+                                case "Стандарт 2":
+                                    MiddleHall_2 standart_2 = new MiddleHall_2(label.Text, id_ses, this);
+                                    standart_2.hall_form_close += Hall_form_close;
+                                    standart_2.Show();
+                                    this.Hide();
+                                    break;
+
+                                case "IMAX":
+                                    IMAXHall_1 IMAX_1 = new IMAXHall_1(label.Text, id_ses, this);
+                                    IMAX_1.hall_form_close += Hall_form_close;
+                                    IMAX_1.Show();
+                                    this.Hide();
+                                    break;
+
+                                case "Большой зал":
+                                    HugeHall_1 hugeHall_1 = new HugeHall_1(label.Text, id_ses, this);
+                                    hugeHall_1.hall_form_close += Hall_form_close;
+                                    hugeHall_1.Show();
+                                    this.Hide();
+                                    break;
+
+                                case "Диванный зал":
+                                    Premium_hall premium_Hall = new Premium_hall(label.Text, id_ses, this);
+                                    premium_Hall.hall_form_close += Hall_form_close;
+                                    premium_Hall.Show();
+                                    this.Hide();
+                                    break;
+                            }
+                        };
+
+                        if (session_time > DateTime.Now)
+                        {
+                            panel.Controls.Add(button);
+                            panel.Controls.Add(label);
+                        }
+                    }
+                    this.Controls.Add(pictureBox);
+                    this.Controls.Add(panel);
                 }
-                this.Controls.Add(pictureBox);
-                this.Controls.Add(panel);
+            }
+            catch 
+            {
+                MessageBox.Show("Что-то пошло не так", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -236,17 +257,21 @@ namespace Cinema_app_Diplom
             Generate_sessions();
         }
 
+        private void Hall_form_close(object sender, EventArgs e)
+        {
+            Generate_sessions();
+            this.Show();
+        }
 
-        private void button_back_Click(object sender, EventArgs e)
+        private void label_back_Click(object sender, EventArgs e)
         {
             main_frm.Show();
             this.Close();
         }
 
-        private void Hall_form_close(object sender, EventArgs e)
+        private void Sessions_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Generate_sessions();
-            this.Show();
+            Application.Exit();
         }
     }
 }

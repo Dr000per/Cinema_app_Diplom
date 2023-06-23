@@ -22,6 +22,7 @@ namespace Cinema_app_Diplom
             InitializeComponent();
             manager_form = form;
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         string timestring;
         private void Sessions_add_Load(object sender, EventArgs e)
@@ -38,25 +39,8 @@ namespace Cinema_app_Diplom
             }
             dateTimePicker1.Value = DateTime.Now;
             comboBox_hall.Enabled = false;
-            button_add.Enabled = false;
         }
 
-        private void button_add_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                db.ExecuteNonQuery($"insert into sessions values ((select id from cinema_hall where name = '{comboBox_hall.SelectedItem}'), (select id from film where Film_name = '{comboBox_film.SelectedItem}'), '{dateTimePicker1.Value}', '{comboBox_session_time.SelectedItem}', {comboBox_session_price.SelectedItem});");
-                MessageBox.Show("Вы успешно добавили сеанс!", "Оповещение");
-                comboBox_session_price.SelectedIndex = 0;
-                comboBox_session_time.Items.Clear();
-                TimeSessionsAdd();
-                DurationCheck();
-            }
-            catch
-            {
-                MessageBox.Show("Что-то пошло не так, проверьте введённые данные", "Уведомление");
-            }
-        }
 
         private void comboBox_hall_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -106,7 +90,7 @@ namespace Cinema_app_Diplom
             }
             catch
             {
-                MessageBox.Show("Случились технические неполадки!", "Уведомление");
+                MessageBox.Show("Случились технические неполадки!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -137,15 +121,7 @@ namespace Cinema_app_Diplom
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так, проверьте введённые данные", "Уведомление");
-            }
-        }
-
-        private void comboBox_session_price_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox_film.SelectedItem != null && comboBox_hall.SelectedItem != null && comboBox_session_time.SelectedItem != null)
-            {
-                button_add.Enabled = true;
+                MessageBox.Show("Что-то пошло не так, проверьте введённые данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -159,10 +135,39 @@ namespace Cinema_app_Diplom
             }
         }
 
-        private void button_close_Click(object sender, EventArgs e)
+        private void label_back_Click(object sender, EventArgs e)
         {
             manager_form.Show();
             this.Close();
+        }
+
+        private void label_add_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(comboBox_film.SelectedItem != null && comboBox_hall.SelectedItem != null && comboBox_session_time.SelectedItem != null && comboBox_session_price.SelectedItem != null)
+                {
+                    db.ExecuteNonQuery($"insert into sessions values ((select id from cinema_hall where name = '{comboBox_hall.SelectedItem}'), (select id from film where Film_name = '{comboBox_film.SelectedItem}'), '{dateTimePicker1.Value}', '{comboBox_session_time.SelectedItem}', {comboBox_session_price.SelectedItem});");
+                    MessageBox.Show("Вы успешно добавили сеанс!", "Оповещение");
+                    comboBox_session_price.SelectedIndex = 0;
+                    comboBox_session_time.Items.Clear();
+                    TimeSessionsAdd();
+                    DurationCheck();
+                }
+                else
+                {
+                    MessageBox.Show("Заполните все данные", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так, проверьте введённые данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Sessions_add_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
