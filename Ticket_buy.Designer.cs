@@ -38,6 +38,7 @@
             this.radioButton_nal = new System.Windows.Forms.RadioButton();
             this.radioButton_beznal = new System.Windows.Forms.RadioButton();
             this.button_close = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -166,5 +167,6 @@
         private System.Windows.Forms.RadioButton radioButton_nal;
         private System.Windows.Forms.RadioButton radioButton_beznal;
         private System.Windows.Forms.Button button_close;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
