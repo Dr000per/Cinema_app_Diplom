@@ -120,10 +120,5 @@ namespace Cinema_app_Diplom
                 e.Handled = true;
             }
         }
-
-        private void Users_add_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

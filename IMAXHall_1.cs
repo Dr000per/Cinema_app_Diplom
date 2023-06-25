@@ -104,10 +104,5 @@ namespace Cinema_app_Diplom
                 MessageBox.Show("Для начала выберите место/места на схеме", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void IMAXHall_1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

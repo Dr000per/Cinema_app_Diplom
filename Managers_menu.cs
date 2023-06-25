@@ -51,10 +51,5 @@ namespace Cinema_app_Diplom
             employee_Add.Show();
             this.Hide();
         }
-
-        private void Managers_menu_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

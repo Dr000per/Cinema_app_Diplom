@@ -168,7 +168,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Ticket_buy";
             this.Text = "Продажа билетов";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Ticket_buy_FormClosed);
             this.Load += new System.EventHandler(this.Ticket_buy_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

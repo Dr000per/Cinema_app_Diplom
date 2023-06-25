@@ -58,7 +58,6 @@
             // 
             // label_back
             // 
-            this.label_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_back.AutoSize = true;
             this.label_back.BackColor = System.Drawing.Color.Transparent;
             this.label_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -87,7 +86,6 @@
             this.MinimumSize = new System.Drawing.Size(1420, 743);
             this.Name = "Sessions";
             this.Text = "Сеансы";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Sessions_FormClosed);
             this.Load += new System.EventHandler(this.Sessions_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

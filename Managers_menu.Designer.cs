@@ -117,7 +117,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Managers_menu";
             this.Text = "Меню для менеджеров";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Managers_menu_FormClosed);
             this.Load += new System.EventHandler(this.Managers_menu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

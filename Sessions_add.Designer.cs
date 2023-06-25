@@ -217,7 +217,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Sessions_add";
             this.Text = "Создание сеансов";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Sessions_add_FormClosed);
             this.Load += new System.EventHandler(this.Sessions_add_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

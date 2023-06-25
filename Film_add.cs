@@ -242,10 +242,5 @@ namespace Cinema_app_Diplom
                 }
             }
         }
-
-        private void Film_add_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

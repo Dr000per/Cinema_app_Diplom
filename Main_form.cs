@@ -35,7 +35,7 @@ namespace Cinema_app_Diplom
             }
             else if(role == 4)
             {
-                label_menu_for_operators.Visible = false;
+                // label_menu_for_operators.Visible = false;
             }
         }
 

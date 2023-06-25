@@ -2078,7 +2078,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MiddleHall_2";
             this.Text = "Схема Стандарт_2 зал";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MiddleHall_2_FormClosed);
             this.Load += new System.EventHandler(this.MiddleHall_2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

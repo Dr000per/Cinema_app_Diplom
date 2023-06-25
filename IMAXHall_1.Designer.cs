@@ -4796,7 +4796,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "IMAXHall_1";
             this.Text = "Схема IMAX зал";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IMAXHall_1_FormClosed);
             this.Load += new System.EventHandler(this.IMAXHall_1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -492,7 +492,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Film_add";
             this.Text = "Добавление фильма";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Film_add_FormClosed);
             this.Load += new System.EventHandler(this.Film_add_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_poster_path)).EndInit();
             this.ResumeLayout(false);

@@ -268,10 +268,5 @@ namespace Cinema_app_Diplom
             main_frm.Show();
             this.Close();
         }
-
-        private void Sessions_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

@@ -200,7 +200,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Users_add";
             this.Text = "Добавление пользователя";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Users_add_FormClosed);
             this.Load += new System.EventHandler(this.Users_add_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

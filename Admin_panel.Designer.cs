@@ -87,7 +87,6 @@
             this.Name = "Admin_panel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Панель администратора";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Admin_panel_FormClosed);
             this.Load += new System.EventHandler(this.Admin_panel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

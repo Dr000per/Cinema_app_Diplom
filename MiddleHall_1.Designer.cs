@@ -1718,7 +1718,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MiddleHall_1";
             this.Text = "Схема Стандарт_1 зал";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MiddleHall_1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

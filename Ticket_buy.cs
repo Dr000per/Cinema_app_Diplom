@@ -194,10 +194,5 @@ namespace Cinema_app_Diplom
         {
             Close_ticket_buy();
         }
-
-        private void Ticket_buy_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

@@ -176,10 +176,5 @@ namespace Cinema_app_Diplom
         {
 
         }
-
-        private void Employee_add_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

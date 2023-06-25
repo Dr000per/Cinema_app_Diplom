@@ -37,10 +37,5 @@ namespace Cinema_app_Diplom
             users_Add.Show();
             this.Hide();
         }
-
-        private void Admin_panel_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

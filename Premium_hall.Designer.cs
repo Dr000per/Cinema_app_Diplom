@@ -914,7 +914,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Premium_hall";
             this.Text = "Схема диванного зала";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Premium_hall_FormClosed);
             this.Load += new System.EventHandler(this.Premium_hall_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -51,16 +51,30 @@ namespace Cinema_app_Diplom
 
         private void comboBox_film_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable film_release_dates = db.ExecuteSql($"select film_release_start, film_release_finish from film where film_name = '{comboBox_film.SelectedItem}'");
-            dateTimePicker1.MinDate = DateTime.Now.Date;
-            dateTimePicker1.MaxDate = (DateTime)film_release_dates.Rows[0].ItemArray[1];
-            dateTimePicker1.Value = dateTimePicker1.MinDate;
-            comboBox_hall.Enabled = true;
-            if(comboBox_hall.SelectedItem != null)
+            try
             {
-                comboBox_session_time.Items.Clear();
-                TimeSessionsAdd();
-                DurationCheck();
+                DataTable film_release_dates = db.ExecuteSql($"select film_release_start, film_release_finish from film where film_name = '{comboBox_film.SelectedItem}'");
+                dateTimePicker1.MinDate = DateTime.Now.Date;
+                if ((DateTime)film_release_dates.Rows[0].ItemArray[1] >= DateTime.Now.Date)
+                {
+                    dateTimePicker1.MaxDate = (DateTime)film_release_dates.Rows[0].ItemArray[1];
+                }
+                else
+                {
+                    dateTimePicker1.MaxDate = DateTime.Now.Date;
+                }
+                dateTimePicker1.Value = dateTimePicker1.MinDate;
+                comboBox_hall.Enabled = true;
+                if (comboBox_hall.SelectedItem != null)
+                {
+                    comboBox_session_time.Items.Clear();
+                    TimeSessionsAdd();
+                    DurationCheck();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Случились технические неполадки!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -163,11 +177,6 @@ namespace Cinema_app_Diplom
             {
                 MessageBox.Show("Что-то пошло не так, проверьте введённые данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void Sessions_add_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

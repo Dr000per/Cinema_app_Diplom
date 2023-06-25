@@ -101,10 +101,5 @@ namespace Cinema_app_Diplom
         {
             Close_hall_form();
         }
-
-        private void MiddleHall_1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }
